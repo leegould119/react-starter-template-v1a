@@ -1,1 +1,31 @@
-@import "simple-grid";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto:wght@300;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import "colors", "simple-grid", "typography";
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+/* -----------------------------------------------------------------
+    HEADER
+------------------------------------------------------------------- */
+.header {
+  background-color: $dark-grey;
+  height: 40px;
+}
+.header nav {
+  padding-top: 8px;
+}
+
+.header a {
+  color: $white;
+  text-decoration: none;
+  font-family: $roboto-condensed;
+  text-transform: uppercase;
+  padding: 0px 0px 10px 10px;
+}

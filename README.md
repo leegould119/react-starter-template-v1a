@@ -24,7 +24,6 @@ install
   - sass-loader
   - style-loader
   - css-loader
-
   - babel-loader
   - babel-polyfill
   - file-loader

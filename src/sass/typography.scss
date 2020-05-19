@@ -1,0 +1,92 @@
+/*------------------------------------------------------------------------------------
+    GLOBAL TYPOGRAPHY STYLES 
+        checkout https://type-scale.com/ STARTING SCALE FOR THE FONTS
+        google fonts and weights
+--------------------------------------------------------------------------------------*/
+
+// fonts
+$roboto: "Roboto", sans-serif;
+$open-sans: "Open Sans", sans-serif;
+$roboto-condensed: "Roboto Condensed", sans-serif;
+
+// font weights
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
+
+// font-size: 14px;
+// 1em = 16px = 100%
+html {
+  font-size: 87.5%;
+}
+body {
+  background-color: $white;
+  font-family: $open-sans;
+  font-weight: $regular;
+  color: $grey;
+  line-height: 1.65em;
+  border: 0px;
+  margin: 0px;
+}
+p {
+  margin-bottom: 1.15rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2.75rem 0 1.05rem;
+  font-family: $roboto-condensed;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.802em;
+  text-transform: uppercase;
+  font-weight: $bold;
+}
+
+h2 {
+  font-size: 1.502em;
+  text-transform: capitalize;
+  font-weight: $medium;
+}
+
+h3 {
+  font-size: 1.424em;
+}
+
+h4 {
+  font-size: 1.266em;
+}
+
+h5 {
+  font-size: 1.125em;
+}
+
+small,
+.text_small {
+  font-size: 0.889em;
+}
+
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.justify {
+  text-align: justify;
+}
