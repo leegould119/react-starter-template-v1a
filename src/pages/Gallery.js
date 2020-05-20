@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import HeaderTag from "../components/elements/headerTag";
 class galleryPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: {
+        value: "welcome to my portfolio website",
+        color: "title-text"
+      }
+    };
+  }
   render() {
+    let { title } = this.state;
     return (
       <React.Fragment>
-        <HeaderTag />
+        <HeaderTag title={title} />
         <div className="container">
           <div className="row">
             <div className="col-6">

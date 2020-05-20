@@ -29,3 +29,36 @@ body {
   text-transform: uppercase;
   padding: 0px 0px 10px 10px;
 }
+
+/* -----------------------------------------------------------------
+    SECTION THEME COLORS
+------------------------------------------------------------------- */
+
+.title-text {
+  color: $light-orange;
+}
+
+.light-orange {
+  background-color: $light-orange;
+  color: $white;
+}
+
+.dark-orange {
+  background-color: $dark-orange;
+  color: $white;
+}
+
+.dark-grey {
+  background-color: $dark-grey;
+  color: $white;
+}
+
+.light-grey {
+  background-color: $light-grey;
+  color: $grey;
+}
+
+.paddingTopBottom {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
