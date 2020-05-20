@@ -1,0 +1,80 @@
+/*-----------------------------------------------------------------------------------------------
+BUTTON STYLES
+-------------------------------------------------------------------------------------------------*/
+//mixins
+@mixin align-center {
+  margin: 10px auto 20px;
+}
+// corsor styles
+$pointer: pointer;
+
+// padding
+$default-padding: 5px;
+$padding-10px: 10px;
+
+// button widths
+$button-width1: 100px;
+$button-width2: 120px;
+
+// corner raduis
+$corners-3px: 3px;
+$corners-5px: 5px;
+
+.button {
+  width: $button-width1;
+  font-family: $roboto-condensed;
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+// hover styles for desktop pc's
+
+@media (hover: hover) {
+  .orange-btn {
+    @include align-center;
+    background-color: $dark-orange;
+    color: $white;
+    cursor: $pointer;
+    padding: $default-padding;
+    border-radius: $corners-3px;
+
+    &:hover {
+      background-color: $dark-grey;
+    }
+  }
+
+  .grey-btn {
+    @include align-center;
+    color: $white;
+    cursor: $pointer;
+    padding: $default-padding;
+    background-color: $dark-grey;
+    border-radius: $corners-3px;
+
+    &:hover {
+      background-color: $dark-orange;
+    }
+  }
+}
+
+// button styles for mobile devices
+.grey-btn {
+  @include align-center;
+  background-color: $light-orange;
+  color: $white;
+  cursor: $pointer;
+  padding: $default-padding;
+  background-color: $dark-grey;
+  border-radius: $corners-3px;
+}
+
+.orange-btn {
+  @include align-center;
+  background-color: $dark-orange;
+  color: $white;
+  cursor: $pointer;
+  padding: $default-padding;
+  border-radius: $corners-3px;
+}

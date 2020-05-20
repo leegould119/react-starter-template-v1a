@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto:wght@300;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-@import "colors", "simple-grid", "typography";
+@import "colors", "simple-grid", "typography", "buttons";
 body {
   height: 100%;
   width: 100%;
@@ -34,31 +34,47 @@ body {
     SECTION THEME COLORS
 ------------------------------------------------------------------- */
 
+/*  
+    used for temlates h1 tag 
+    [/components/elements/headerTag.js]
+
+*/
 .title-text {
   color: $light-orange;
 }
 
+//  font colors for templates
+.light-orange-color {
+  color: $light-orange;
+}
+.dark-orange-color {
+  color: $dark-orange;
+}
+.dark-grey-color {
+  color: $dark-grey;
+}
+.white-color {
+  color: $white;
+}
+// background colors for templates
 .light-orange {
   background-color: $light-orange;
   color: $white;
 }
-
 .dark-orange {
   background-color: $dark-orange;
   color: $white;
 }
-
 .dark-grey {
   background-color: $dark-grey;
   color: $white;
 }
-
 .light-grey {
   background-color: $light-grey;
   color: $grey;
 }
 
-.paddingTopBottom {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.padding-top-bottom {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
