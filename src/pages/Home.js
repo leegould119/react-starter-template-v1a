@@ -17,20 +17,76 @@ class homePage extends Component {
       title: {
         value: "welcome to my portfolio website",
         color: "title-text"
-      }
+      },
+      generalStyleOptions: {
+        fontColors: {
+          lightOrange: "light-orange-color",
+          darkOrange: "dark-orange-color",
+          darkGrey: "dark-grey-color",
+          white: "white"
+        },
+        backgroundColorOptions: {
+          lightOrange: "light-orange",
+          darkOrange: "dark-orange",
+          darkGrey: " dark-grey",
+          lightGrey: " dark-grey"
+        },
+        paddingTopBottom: "padding-top-bottom"
+      },
+      fourColumnLayout: [
+        {
+          title: "",
+          body: "",
+          id: 1,
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 2,
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 3,
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 4,
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        }
+      ]
     };
   }
 
   render() {
-    let { title, twoColumnLayout, fourColumnLayout } = this.state;
+    let { title, generalStyleOptions, fourColumnLayout } = this.state;
     // styles
     return (
       <React.Fragment>
         <HeaderTag title={title} />
         <TwoColumnsLayout />
-        <FourColumnsLayout />
+        <FourColumnsLayout
+          generalStyleOptions={generalStyleOptions}
+          vals={fourColumnLayout}
+        />
         <ThreeColumnLayout />
-        <FourColumnsLayout />
+        {/* <FourColumnsLayout /> */}
         <ThreeColumnLayoutTwo />
       </React.Fragment>
     );

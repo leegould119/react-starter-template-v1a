@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 
 class aButton extends Component {
+  handleClick = () => {
+    console.log("button clicked");
+  };
   render() {
-    let { classes, hrefs, title } = this.props;
+    let { link, classes, buttonTitle } = this.props;
 
     return (
-      <React.Fragment>
-        <a className={classes} href={hrefs}>
-          {title}
-        </a>
-      </React.Fragment>
+      <a href={link} className={classes} onClick={this.handleClick}>
+        {buttonTitle}
+      </a>
     );
   }
 }
