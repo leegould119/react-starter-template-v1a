@@ -4,8 +4,6 @@ import React, { Component } from "react";
 import FourColumnsLayout from "../components/pageLayouts/fourColumnLayout";
 import TwoColumnsLayout from "../components/pageLayouts/twoColumnLayout";
 import ThreeColumnLayout from "../components/pageLayouts/threeColumnLayout";
-// three col layout 50% 25% 25%
-import ThreeColumnLayoutTwo from "../components/pageLayouts/threeColumnLayoutTwo";
 
 // reusable h1
 import HeaderTag from "../components/elements/headerTag";
@@ -33,7 +31,7 @@ class homePage extends Component {
         },
         paddingTopBottom: "padding-top-bottom"
       },
-      fourColumnLayout: [
+      projects: [
         {
           title: "",
           body: "",
@@ -56,7 +54,7 @@ class homePage extends Component {
           title: "",
           body: "",
           id: 3,
-          button: true,
+          button: false,
           classes: "button orange-btn",
           link: "#",
           buttonTitle: "read more"
@@ -70,24 +68,117 @@ class homePage extends Component {
           link: "#",
           buttonTitle: "read more"
         }
+      ],
+      threeColumnLayout: [
+        {
+          title: "",
+          body: "",
+          id: 1,
+          columnClasses: "col-4",
+          button: false,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 2,
+          columnClasses: "col-4",
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 3,
+          columnClasses: "col-4",
+          button: true,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        }
+      ],
+      threeColumnLayoutTwo: [
+        {
+          title: "",
+          body: (
+            <React.Fragment>
+              <p>
+                Ullamco proident aliqua esse excepteur quis ad fugiat
+                incididunt. Qui aliqua consequat nostrud sunt pariatur
+                incididunt. Fugiatnulla fugiat et esse minim sint ullamco eu
+                aute cillum pariatur
+              </p>
+              <p>
+                Ex deserunt esse esse culpa ut. Ut est velit non nostrud officia
+                sunt do cillum culpa. Ad deserunt consectetur dolor et qui
+                ullamco nulla elit ipsum in sunt minim. Laboris dolor qui minim
+                adipisicing magna consectetur ex ex laborum do in. Dolor sunt
+                aute sit non laboris mollit irure sint fugiat minim. Dolore qui
+                quis duis anim fugiat non eiusmod dolor consequat culpa
+                consectetur. Officia quis proident irure tempor id magna mollit
+                quis. Duis duis aliquip velit tempor velit.
+              </p>
+            </React.Fragment>
+          ),
+          id: 1,
+          columnClasses: "col-6",
+          button: false,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 2,
+          columnClasses: "col-3",
+          button: false,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        },
+        {
+          title: "",
+          body: "",
+          id: 3,
+          columnClasses: "col-3",
+          button: false,
+          classes: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more"
+        }
       ]
     };
   }
 
   render() {
-    let { title, generalStyleOptions, fourColumnLayout } = this.state;
+    let {
+      title,
+      generalStyleOptions,
+      projects,
+      threeColumnLayout,
+      threeColumnLayoutTwo
+    } = this.state;
     // styles
+
     return (
       <React.Fragment>
         <HeaderTag title={title} />
         <TwoColumnsLayout />
         <FourColumnsLayout
-          generalStyleOptions={generalStyleOptions}
-          vals={fourColumnLayout}
+          generalStyleOptions={
+            generalStyleOptions.backgroundColorOptions.darkGrey +
+            " " +
+            generalStyleOptions.paddingTopBottom
+          }
+          vals={projects}
         />
-        <ThreeColumnLayout />
-        {/* <FourColumnsLayout /> */}
-        <ThreeColumnLayoutTwo />
+        <ThreeColumnLayout vals={threeColumnLayout} />
+        <ThreeColumnLayout vals={threeColumnLayoutTwo} />
       </React.Fragment>
     );
   }
