@@ -16,21 +16,6 @@ class homePage extends Component {
         value: "welcome to my portfolio website",
         color: "title-text"
       },
-      generalStyleOptions: {
-        fontColors: {
-          lightOrange: "light-orange-color",
-          darkOrange: "dark-orange-color",
-          darkGrey: "dark-grey-color",
-          white: "white"
-        },
-        backgroundColorOptions: {
-          lightOrange: "light-orange",
-          darkOrange: "dark-orange",
-          darkGrey: " dark-grey",
-          lightGrey: " dark-grey"
-        },
-        paddingTopBottom: "padding-top-bottom"
-      },
       projects: [
         {
           title: "",
@@ -206,7 +191,8 @@ class homePage extends Component {
       threeColumnLayoutTwo
     } = this.state;
     // styles
-
+    let { generalStyles } = this.props;
+    console.log(JSON.stringify(generalStyles));
     return (
       <React.Fragment>
         <HeaderTag title={title} />

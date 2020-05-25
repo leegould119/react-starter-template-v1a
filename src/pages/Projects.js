@@ -23,8 +23,9 @@ class projectsPage extends Component {
           ),
           id: 1,
           button: true,
+          target: "_Blank",
           buttonClass: "button orange-btn",
-          link: "#",
+          link: "http://google.com",
           buttonTitle: "read more",
           colClass: "col-3"
         },
@@ -41,6 +42,7 @@ class projectsPage extends Component {
           button: true,
           buttonClass: "button orange-btn",
           link: "#",
+          target: "",
           buttonTitle: "read more",
           colClass: "col-3"
         },
@@ -57,6 +59,7 @@ class projectsPage extends Component {
           button: false,
           buttonClass: "button orange-btn",
           link: "#",
+          target: "",
           buttonTitle: "read more",
           colClass: "col-3"
         },
@@ -73,6 +76,7 @@ class projectsPage extends Component {
           button: true,
           buttonClass: "button orange-btn",
           link: "#",
+          target: "",
           buttonTitle: "read more",
           colClass: "col-3"
         }
@@ -91,6 +95,7 @@ class projectsPage extends Component {
           button: false,
           buttonClass: "button orange-btn",
           link: "#",
+          target: "",
           buttonTitle: "read more",
           colClass: "col-6"
         },
@@ -107,6 +112,7 @@ class projectsPage extends Component {
           button: false,
           buttonClass: "button orange-btn",
           link: "#",
+          target: "",
           buttonTitle: "read more",
           colClass: "col-6"
         }
@@ -116,11 +122,20 @@ class projectsPage extends Component {
 
   render() {
     let { title, projects, technologies } = this.state;
+    let { generalStyles } = this.props;
+    console.log(JSON.stringify(generalStyles));
     return (
       <React.Fragment>
         <HeaderTag title={title} />
-        <Sections vals={projects} />
-        <Sections vals={technologies} />
+        <Sections
+          backgroundColor={generalStyles.backgroundColorOptions.lightOrange}
+          padding={generalStyles.paddingTopBottom}
+          vals={projects}
+        />
+        <Sections
+          vals={technologies}
+          padding={generalStyles.paddingTopBottom}
+        />
       </React.Fragment>
     );
   }

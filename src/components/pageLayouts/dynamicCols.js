@@ -17,6 +17,7 @@ export default class componentName extends Component {
                   link={data.link}
                   classes={data.buttonClass}
                   buttonTitle={data.buttonTitle}
+                  target={data.target}
                 />
               );
             }
