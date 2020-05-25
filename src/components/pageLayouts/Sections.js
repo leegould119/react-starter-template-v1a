@@ -8,8 +8,10 @@ class Sections extends Component {
 
     console.log("vals : " + vals);
 
+    let paddingLocal = padding ? padding : "";
+    let backgroundColorLocal = backgroundColor ? backgroundColor : "";
     return (
-      <section className={backgroundColor ? backgroundColor : ""}>
+      <section className={backgroundColorLocal + " " + paddingLocal}>
         <div className="container">
           <DynamicCols vals={vals} />
         </div>
