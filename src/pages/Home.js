@@ -34,7 +34,13 @@ class homePage extends Component {
       projects: [
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 1,
           button: true,
           classes: "button orange-btn",
@@ -43,7 +49,13 @@ class homePage extends Component {
         },
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 2,
           button: true,
           classes: "button orange-btn",
@@ -52,7 +64,13 @@ class homePage extends Component {
         },
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 3,
           button: false,
           classes: "button orange-btn",
@@ -61,7 +79,13 @@ class homePage extends Component {
         },
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 4,
           button: true,
           classes: "button orange-btn",
@@ -72,17 +96,29 @@ class homePage extends Component {
       threeColumnLayout: [
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 1,
           columnClasses: "col-4",
-          button: false,
+          button: true,
           classes: "button orange-btn",
           link: "#",
           buttonTitle: "read more"
         },
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 2,
           columnClasses: "col-4",
           button: true,
@@ -92,7 +128,13 @@ class homePage extends Component {
         },
         {
           title: "",
-          body: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
           id: 3,
           columnClasses: "col-4",
           button: true,

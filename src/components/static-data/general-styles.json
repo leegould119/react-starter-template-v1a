@@ -1,0 +1,15 @@
+{
+  "fontColors": {
+    "lightOrange": "light-orange-color",
+    "darkOrange": "dark-orange-color",
+    "darkGrey": "dark-grey-color",
+    "white": "white"
+  },
+  "backgroundColorOptions": {
+    "lightOrange": "light-orange",
+    "darkOrange": "dark-orange",
+    "darkGrey": " dark-grey",
+    "lightGrey": " dark-grey"
+  },
+  "paddingTopBottom": "padding-top-bottom"
+}

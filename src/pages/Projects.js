@@ -1,58 +1,126 @@
 import React, { Component } from "react";
 
-import FourColumnsLayout from "../components/pageLayouts/fourColumnLayout";
-import TwoColumnsLayout from "../components/pageLayouts/twoColumnLayout";
 import HeaderTag from "../components/elements/headerTag";
+import Sections from "../components/pageLayouts/Sections";
+
 class projectsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: {
-        value: "welcome to my portfolio website",
+        value: "Projects page",
         color: "title-text"
       },
-      twoColumnLayout: {
-        fontColors: {
-          lightOrange: "light-orange-color",
-          darkOrange: "dark-orange-color",
-          darkGrey: "dark-grey-color",
-          white: "white"
+      projects: [
+        {
+          title: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 1,
+          button: true,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-3"
         },
-        paddingTopBottom: "padding-top-bottom",
-        title: "about me",
-        title1: "my background",
-        bodyText:
-          "Use it to describe your credentials, expertise, and goals. What’s the best way to start? The following exercises can be helpful in figuring all of that out, and will help you determine what to include based on your target audience. Spend about five minutes on each question. You can use the ‘example’ answers to give you an idea of what that answer might sound like in its final form, but be sure to use your own words. ",
-        bodyText1:
-          "You can use the ‘example’ answers to give you an idea of what that answer might sound like in its final form, but be sure to use your own words. "
-      },
-      fourColumnLayout: {
-        background: {
-          lightOrange: "  light-orange",
-          darkOrange: " dark-orange",
-          darkGrey: " dark-grey",
-          lightGrey: " dark-grey"
+        {
+          title: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 2,
+          button: true,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-3"
         },
-        paddingTopBottom: "padding-top-bottom"
-      }
+        {
+          title: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 3,
+          button: false,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-3"
+        },
+        {
+          title: "",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 4,
+          button: true,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-3"
+        }
+      ],
+      technologies: [
+        {
+          title: "project 1",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 1,
+          button: false,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-6"
+        },
+        {
+          title: "project 2",
+          body: (
+            <p>
+              Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui
+              ea excepteur excepteur duis. Fugiat laborum anim reprehenderit
+              commodo enim cillum qui aliqua sint dolore qui et consectetur.
+            </p>
+          ),
+          id: 2,
+          button: false,
+          buttonClass: "button orange-btn",
+          link: "#",
+          buttonTitle: "read more",
+          colClass: "col-6"
+        }
+      ]
     };
   }
-  render() {
-    let { title, twoColumnLayout, fourColumnLayout } = this.state;
 
+  render() {
+    let { title, projects, technologies } = this.state;
     return (
       <React.Fragment>
         <HeaderTag title={title} />
-        <FourColumnsLayout />
-        <TwoColumnsLayout params={twoColumnLayout} />
-        <FourColumnsLayout
-          params={
-            fourColumnLayout.background.lightOrange +
-            " " +
-            fourColumnLayout.paddingTopBottom
-          }
-        />
-        <TwoColumnsLayout params={twoColumnLayout} />
+        <Sections vals={projects} />
+        <Sections vals={technologies} />
       </React.Fragment>
     );
   }
