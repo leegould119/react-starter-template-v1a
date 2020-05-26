@@ -30,7 +30,7 @@ $corners-5px: 5px;
 }
 
 // hover styles for desktop pc's
-
+$transition: ease-in-out 0.3s all;
 @media (hover: hover) {
   .orange-btn {
     @include align-center;
@@ -39,6 +39,7 @@ $corners-5px: 5px;
     cursor: $pointer;
     padding: $default-padding;
     border-radius: $corners-3px;
+    $transition: ease-in-out 0.3s all;
 
     &:hover {
       background-color: $dark-grey;
@@ -52,6 +53,7 @@ $corners-5px: 5px;
     padding: $default-padding;
     background-color: $dark-grey;
     border-radius: $corners-3px;
+    $transition: ease-in-out 0.3s all;
 
     &:hover {
       background-color: $dark-orange;

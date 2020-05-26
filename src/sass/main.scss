@@ -78,3 +78,83 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+/* -----------------------------------------------------------------
+    Carousel styles
+------------------------------------------------------------------- */
+$transition: ease-in-out 0.3s all;
+.carousel {
+  background-color: $dark-grey;
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.nextButton,
+.backButton {
+  position: absolute;
+  top: 45%;
+}
+@media (hover: hover) {
+  .nextButton {
+    color: $white;
+    right: -40px;
+    background-image: url("../img/forward.svg");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    transition: $transition;
+
+    &:hover {
+      background-image: url("../img/forward-hover.svg");
+    }
+  }
+
+  .backButton {
+    color: $white;
+    left: -40px;
+    background-image: url("../img/back.svg");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    transition: $transition;
+
+    &:hover {
+      background-image: url("../img/back-hover.svg");
+    }
+  }
+}
+.backButton {
+  color: $white;
+  left: -40px;
+  background-image: url("../img/back.svg");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+.nextButton {
+  color: $white;
+  right: -50px;
+  background-image: url("../img/forward.svg");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+
+.image-slide {
+  width: calc(100% - 100px);
+  height: calc(300px - 100px);
+  padding: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.image-slide h1 {
+  color: $white;
+}
+
+.image-slide span {
+  color: $white;
+}

@@ -7,7 +7,8 @@ import ThreeColumnLayout from "../components/pageLayouts/threeColumnLayout";
 
 // reusable h1
 import HeaderTag from "../components/elements/headerTag";
-import twoColumnLayout from "../components/pageLayouts/twoColumnLayout";
+
+import { Carousel } from "../components/carousel-v2";
 class homePage extends Component {
   constructor(props) {
     super(props);
@@ -185,26 +186,18 @@ class homePage extends Component {
   render() {
     let {
       title,
-      generalStyleOptions,
       projects,
       threeColumnLayout,
       threeColumnLayoutTwo
     } = this.state;
     // styles
     let { generalStyles } = this.props;
-    console.log(JSON.stringify(generalStyles));
+
     return (
       <React.Fragment>
+        <Carousel />
         <HeaderTag title={title} />
-        <TwoColumnsLayout />
-        <FourColumnsLayout
-          generalStyleOptions={
-            generalStyleOptions.backgroundColorOptions.darkGrey +
-            " " +
-            generalStyleOptions.paddingTopBottom
-          }
-          vals={projects}
-        />
+        <FourColumnsLayout vals={projects} />
         <ThreeColumnLayout vals={threeColumnLayout} />
         <ThreeColumnLayout vals={threeColumnLayoutTwo} />
       </React.Fragment>

@@ -18,10 +18,7 @@ class threeColumnLayout extends Component {
     let { vals } = this.props;
     let { stateVals } = this.state;
 
-    console.log("sate vals :" + JSON.stringify(stateVals));
-
     let pageContent = vals.map((data, idx) => {
-      console.log("data : " + data.text);
       return (
         <div key={idx} id={data.id} className={data.columnClasses}>
           <h2>{data.title ? data.title : "placeholde text"}</h2>

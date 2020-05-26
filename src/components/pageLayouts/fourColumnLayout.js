@@ -15,7 +15,7 @@ class fourColumnLayout extends Component {
       return (
         <div key={data.id} id={data.id} className="col-3">
           <h2>{data.title ? data.title : "placeholder title"}</h2>
-          <p>{data.body ? data.body : "placeholder text"}</p>
+          {data.body ? data.body : "placeholder text"}
 
           {(() => {
             if (data.button === true) {
