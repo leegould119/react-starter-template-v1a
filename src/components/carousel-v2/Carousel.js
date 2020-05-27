@@ -44,4 +44,5 @@ class Carousel extends Component {
     );
   }
 }
+
 export default Carousel;
