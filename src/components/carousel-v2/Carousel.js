@@ -9,9 +9,34 @@ class Carousel extends Component {
     super(props);
     this.state = {
       pageNum: 0,
-      maxIndex: imageUrls.length - 1
+      intervalId: "",
+      maxIndex: imageUrls.length - 1,
+      intervalTime: 5000
     };
   }
+
+  componentDidMount = () => {
+    this.setBannerAnimation();
+  };
+
+  setBannerAnimation = () => {
+    const id = new Date().getSeconds().toString() + "INTERVAL_ID";
+    this.setState({ intervalId: id });
+    this.animateBanner();
+  };
+
+  animateBanner = () => {
+    let { intervalTime } = this.state;
+
+    this.intervalId = setInterval(() => {
+      let { pageNum, maxIndex } = this.state;
+      if (pageNum == maxIndex) {
+        this.setState({ pageNum: 0 });
+      } else {
+        this.setState({ pageNum: this.state.pageNum + 1 });
+      }
+    }, intervalTime);
+  };
 
   next = () => {
     let { pageNum, maxIndex } = this.state;
@@ -29,6 +54,10 @@ class Carousel extends Component {
     } else {
       this.setState({ pageNum: this.state.pageNum - 1 });
     }
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.intervalId);
   };
 
   render() {

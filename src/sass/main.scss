@@ -95,50 +95,55 @@ $transition: ease-in-out 0.3s all;
   position: absolute;
   top: 45%;
 }
-@media (hover: hover) {
-  .nextButton {
-    color: $white;
-    right: -40px;
-    background-image: url("../img/forward.svg");
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    transition: $transition;
 
-    &:hover {
-      background-image: url("../img/forward-hover.svg");
-    }
-  }
-
-  .backButton {
-    color: $white;
-    left: -40px;
-    background-image: url("../img/back.svg");
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    transition: $transition;
-
-    &:hover {
-      background-image: url("../img/back-hover.svg");
-    }
-  }
-}
-.backButton {
-  color: $white;
-  left: -40px;
-  background-image: url("../img/back.svg");
-  width: 30px;
-  height: 30px;
-  background-repeat: no-repeat;
-}
 .nextButton {
-  color: $white;
-  right: -50px;
-  background-image: url("../img/forward.svg");
-  width: 30px;
-  height: 30px;
-  background-repeat: no-repeat;
+  display: block;
+  z-index: 1000;
+  background-color: $dark-orange;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  right: 40px;
+  transition: $transition;
+  &:after {
+    content: "";
+    display: block;
+    background-image: url("../img/arrow.svg");
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: $dark-grey;
+  }
+}
+
+.backButton {
+  display: block;
+  z-index: 1000;
+  background-color: $dark-orange;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  left: 40px;
+  transition: $transition;
+  &:after {
+    content: "";
+    display: block;
+    background-image: url("../img/arrow.svg");
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: $dark-grey;
+  }
 }
 
 .image-slide {
