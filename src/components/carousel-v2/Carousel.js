@@ -8,20 +8,24 @@ class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 0
+      pageNum: 0,
+      maxIndex: imageUrls.length - 1
     };
   }
 
   next = () => {
-    let { pageNum } = this.state;
-
-    this.setState({ pageNum: this.state.pageNum + 1 });
+    let { pageNum, maxIndex } = this.state;
+    if (pageNum == maxIndex) {
+      this.setState({ pageNum: 0 });
+    } else {
+      this.setState({ pageNum: this.state.pageNum + 1 });
+    }
   };
 
   prev = () => {
-    let { pageNum } = this.state;
+    let { pageNum, maxIndex } = this.state;
     if (pageNum == 0) {
-      return;
+      this.setState({ pageNum: maxIndex });
     } else {
       this.setState({ pageNum: this.state.pageNum - 1 });
     }
