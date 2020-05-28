@@ -218,6 +218,9 @@ $transition: ease-in-out 0.3s all;
       background-color: $dark-orange;
     }
   }
+  .active {
+    background-color: $dark-grey;
+  }
 }
 // animations
 .animateElementForward {

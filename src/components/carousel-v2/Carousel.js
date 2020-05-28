@@ -64,10 +64,11 @@ class Carousel extends Component {
     currentSlide.classList.remove("animateElementForward");
     currentBody.classList.remove("animateTitleForward");
     currentBody.classList.remove("animateTitleBack");
+
     setTimeout(() => {
       currentSlide.classList.add("animateElementForward");
       currentBody.classList.add("animateTitleForward");
-    }, 5);
+    }, 50);
   };
 
   prev = () => {
@@ -108,7 +109,11 @@ class Carousel extends Component {
       <div className=" carousel">
         <BackButton prev={this.prev} />
         <ImageSlide data={data} />
-        <BannerButtons data={buttonData} />
+        <BannerButtons
+          data={buttonData}
+          pageNum={pageNum}
+          click={this.bannerButttonEvent}
+        />
         <NextButton next={this.next} />
       </div>
     );

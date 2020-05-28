@@ -1,175 +1,125 @@
-import bannerImage1 from "../../img/banner1.jpg";
-import bannerImage2 from "../../img/banner2.jpg";
-import bannerImage3 from "../../img/banner3.jpg";
-import bannerImage4 from "../../img/banner4.jpg";
-import bannerImage5 from "../../img/banner5.jpg";
-
-const imageUrls = [
+const data = [
   {
     id: 0,
-    image: bannerImage1,
-    title: "banner 1",
+    title: "title1",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 1,
-    image: bannerImage2,
-    title: " banner 2",
+    title: "title2",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 2,
-    image: bannerImage3,
-    title: " banner 3",
+    title: "title 3",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 3,
-    image: bannerImage4,
-    title: " banner 4",
+    title: "title 4",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 4,
-    image: bannerImage5,
-    title: " banner 5",
+
+    title: "title 5",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 5,
-    image: bannerImage1,
-    title: "banner 1",
+    title: "title 6",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 6,
-    image: bannerImage2,
-    title: " banner 2",
+    title: "title 7",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 7,
-    image: bannerImage3,
-    title: " banner 3",
+    title: "title 8",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 8,
-    image: bannerImage4,
-    title: " banner 4",
+    title: "title 9 ",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 9,
-    image: bannerImage5,
-    title: " banner 5",
+    title: "title 10",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 10,
-    image: bannerImage1,
-    title: "banner 1",
+    title: "title 11",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 11,
-    image: bannerImage2,
-    title: " banner 2",
+    title: "title 12",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 12,
-    image: bannerImage3,
-    title: " banner 3",
+    title: "title 13",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 13,
-    image: bannerImage4,
-    title: " banner 4",
+    title: "title 14",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 14,
-    image: bannerImage5,
-    title: " banner 5",
+    title: "title 15",
     body:
-      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
-    hasButton: true,
-    class: "button orange-btn",
-    buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
+  },
+  {
+    id: 15,
+    title: "title 11",
+    body:
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
+  },
+  {
+    id: 16,
+    title: "title 12",
+    body:
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
+  },
+  {
+    id: 17,
+    title: "title 13",
+    body:
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
+  },
+  {
+    id: 18,
+    title: "title 14",
+    body:
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
+  },
+  {
+    id: 19,
+    title: "title 15",
+    body:
+      "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   }
 ];
 
-export default imageUrls;
+export default data;

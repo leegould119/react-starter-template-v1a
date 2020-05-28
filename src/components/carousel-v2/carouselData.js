@@ -15,7 +15,8 @@ const imageUrls = [
     class: "button orange-btn",
     target: "_self",
     buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+    buttonTitle: "read more",
+    isActive: false
   },
   {
     id: 1,
@@ -27,7 +28,8 @@ const imageUrls = [
     class: "button orange-btn",
     target: "_self",
     buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+    buttonTitle: "read more",
+    isActive: false
   },
   {
     id: 2,
@@ -39,7 +41,8 @@ const imageUrls = [
     class: "button orange-btn",
     target: "_self",
     buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+    buttonTitle: "read more",
+    isActive: false
   },
   {
     id: 3,
@@ -51,7 +54,8 @@ const imageUrls = [
     class: "button orange-btn",
     target: "_self",
     buttonLink: "http://www.google.com",
-    buttonTitle: "read more"
+    buttonTitle: "read more",
+    isActive: false
   },
   {
     id: 4,
@@ -63,7 +67,8 @@ const imageUrls = [
     class: "button orange-btn",
     buttonLink: "http://www.google.com",
     target: "_self",
-    buttonTitle: "read more"
+    buttonTitle: "read more",
+    isActive: false
   }
 ];
 

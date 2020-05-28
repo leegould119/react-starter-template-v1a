@@ -8,7 +8,7 @@ import ThreeColumnLayout from "../components/pageLayouts/threeColumnLayout";
 // reusable h1
 import HeaderTag from "../components/elements/headerTag";
 
-import { Carousel } from "../components/carousel-v2";
+import { Carousel } from "../components/carousel-v3";
 class homePage extends Component {
   constructor(props) {
     super(props);

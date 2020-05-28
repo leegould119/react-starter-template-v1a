@@ -21,7 +21,7 @@ class Carousel extends Component {
 
   next = () => {
     let { startingPage, pageCount, pageNumber } = this.state;
-
+    console.log();
     if (pageNumber == pageCount) {
       this.setState({ pageNumber: startingPage });
     } else {
@@ -40,23 +40,23 @@ class Carousel extends Component {
   };
 
   render() {
-    let { pageNumber, itemsPerPage, pageCount, dataLength, data } = this.state;
-    console.log(
-      " data lenght : " + dataLength + " items per page : " + itemsPerPage
-    );
-    console.log("pageNumber : " + pageNumber + " of " + pageCount);
-    let pageContent = data.map((data, idx) => {
-      return <p key={idx}>{data.title}</p>;
-    });
+    // let { pageNumber, itemsPerPage, pageCount, dataLength, data } = this.state;
+    // console.log(
+    //   " data lenght : " + dataLength + " items per page : " + itemsPerPage
+    // );
+    // console.log("pageNumber : " + pageNumber + " of " + pageCount);
+    // let pageContent = data.map((data, idx) => {
+    //   return <p key={idx}>{data.title}</p>;
+    // });
     return (
       <div>
-        <a onClick={this.prev} href="#">
+        {/* <a onClick={this.prev} href="#">
           prev items
         </a>
         <div>{pageContent}</div>
         <a onClick={this.next} href="#">
           next items
-        </a>
+        </a> */}
       </div>
     );
   }
