@@ -27,13 +27,13 @@ $corners-5px: 5px;
   display: block;
   text-align: center;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 // hover styles for desktop pc's
 $transition: ease-in-out 0.3s all;
 @media (hover: hover) {
   .orange-btn {
-    @include align-center;
     background-color: $dark-orange;
     color: $white;
     cursor: $pointer;
@@ -47,7 +47,6 @@ $transition: ease-in-out 0.3s all;
   }
 
   .grey-btn {
-    @include align-center;
     color: $white;
     cursor: $pointer;
     padding: $default-padding;
@@ -63,7 +62,6 @@ $transition: ease-in-out 0.3s all;
 
 // button styles for mobile devices
 .grey-btn {
-  @include align-center;
   background-color: $light-orange;
   color: $white;
   cursor: $pointer;
@@ -73,7 +71,6 @@ $transition: ease-in-out 0.3s all;
 }
 
 .orange-btn {
-  @include align-center;
   background-color: $dark-orange;
   color: $white;
   cursor: $pointer;

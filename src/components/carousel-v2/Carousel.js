@@ -39,21 +39,55 @@ class Carousel extends Component {
   };
 
   next = () => {
+    clearInterval(this.intervalId);
     let { pageNum, maxIndex } = this.state;
     if (pageNum == maxIndex) {
       this.setState({ pageNum: 0 });
+      this.addNextAnimation(pageNum);
     } else {
       this.setState({ pageNum: this.state.pageNum + 1 });
+      this.addNextAnimation(pageNum);
     }
   };
 
+  addNextAnimation = (pageNum) => {
+    console.log("next animation page number : " + pageNum);
+    let currentSlide = document.getElementById("slide" + pageNum);
+    let currentBody = document.getElementById("body" + pageNum);
+    currentSlide.classList.remove("animateElementBack");
+    currentSlide.classList.remove("animateElementForward");
+    currentBody.classList.remove("animateTitleForward");
+    currentBody.classList.remove("animateTitleBack");
+    setTimeout(() => {
+      currentSlide.classList.add("animateElementForward");
+      currentBody.classList.add("animateTitleForward");
+    }, 5);
+  };
+
   prev = () => {
+    clearInterval(this.intervalId);
     let { pageNum, maxIndex } = this.state;
     if (pageNum == 0) {
       this.setState({ pageNum: maxIndex });
+      this.addBackAnimation(pageNum);
     } else {
       this.setState({ pageNum: this.state.pageNum - 1 });
+      this.addBackAnimation(pageNum);
     }
+  };
+
+  addBackAnimation = (pageNum) => {
+    console.log(" back animation page number : " + pageNum);
+    let currentSlide = document.getElementById("slide" + pageNum);
+    let currentBody = document.getElementById("body" + pageNum);
+    currentSlide.classList.remove("animateElementBack");
+    currentSlide.classList.remove("animateElementForward");
+    currentBody.classList.remove("animateTitleForward");
+    currentBody.classList.remove("animateTitleBack");
+    setTimeout(() => {
+      currentSlide.classList.add("animateElementBack");
+      currentBody.classList.add("animateTitleBack");
+    }, 5);
   };
 
   componentWillUnmount = () => {
@@ -65,7 +99,7 @@ class Carousel extends Component {
     let data = imageUrls[pageNum];
     console.log("page number: " + pageNum);
     return (
-      <div className="carousel">
+      <div className=" carousel">
         <BackButton prev={this.prev} />
         <ImageSlide data={data} />
         <NextButton next={this.next} />

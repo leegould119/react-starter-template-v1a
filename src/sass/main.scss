@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto:wght@300;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
-@import "colors", "simple-grid", "typography", "buttons";
+@import "colors", "mixins", "simple-grid", "typography", "buttons";
 body {
   height: 100%;
   width: 100%;
@@ -84,82 +84,257 @@ body {
 ------------------------------------------------------------------- */
 $transition: ease-in-out 0.3s all;
 .carousel {
-  background-color: $dark-grey;
   width: 100%;
   height: auto;
   position: relative;
-}
+  background-color: $dark-grey;
+  overflow: hidden;
 
-.nextButton,
-.backButton {
-  position: absolute;
-  top: 45%;
-}
-
-.nextButton {
-  display: block;
-  z-index: 1000;
-  background-color: $dark-orange;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  padding: 10px;
-  right: 40px;
-  transition: $transition;
-  &:after {
-    content: "";
+  .nextButton,
+  .backButton {
+    position: absolute;
+    top: 45%;
+  }
+  .nextButton {
     display: block;
-    background-image: url("../img/arrow.svg");
+    z-index: 1000;
+    @include border-radius(50%);
     width: 20px;
     height: 20px;
-    background-repeat: no-repeat;
-    transform: rotate(180deg);
-    cursor: pointer;
-  }
-  &:hover {
-    background-color: $dark-grey;
-  }
-}
+    padding: 10px;
+    right: 40px;
+    transition: $transition;
 
-.backButton {
-  display: block;
-  z-index: 1000;
-  background-color: $dark-orange;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  padding: 10px;
-  left: 40px;
-  transition: $transition;
-  &:after {
-    content: "";
+    &.dark-orange {
+      background-color: $dark-orange;
+
+      &:hover {
+        background-color: $dark-grey;
+      }
+    }
+    &.dark-grey {
+      background-color: $dark-grey;
+
+      &:hover {
+        background-color: $dark-orange;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-image: url("../img/arrow.svg");
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      @include transform(rotate(180deg));
+      margin-left: -3px;
+      cursor: pointer;
+    }
+  }
+
+  .backButton {
     display: block;
-    background-image: url("../img/arrow.svg");
+    z-index: 1000;
+    @include border-radius(50%);
     width: 20px;
     height: 20px;
+    padding: 10px;
+    left: 40px;
+    transition: $transition;
+
+    &.dark-orange {
+      background-color: $dark-orange;
+
+      &:hover {
+        background-color: $dark-grey;
+      }
+    }
+    &.dark-grey {
+      background-color: $dark-grey;
+
+      &:hover {
+        background-color: $dark-orange;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-image: url("../img/arrow.svg");
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      margin-left: 2px;
+      cursor: pointer;
+    }
+  }
+
+  .image-slide {
+    width: calc(100% - 100px);
+    height: calc(40vh - 100px);
+    padding: 50px;
+    background-position: center center;
     background-repeat: no-repeat;
-    margin-left: 2px;
-    cursor: pointer;
+    background-size: cover;
+    transition: background-image 0.5s ease-in-out;
   }
-  &:hover {
-    background-color: $dark-grey;
+
+  .black-background {
+    background-color: $light-orange;
+  }
+
+  .image-slide h1 {
+    font-size: 2.5em;
+    color: $white;
+  }
+  .image-slide span {
+    color: $white;
+    line-height: 2em;
+  }
+}
+// animations
+.animateElementForward {
+  @include animation(animate-banner-forward 0.15s ease-in-out);
+}
+.animateElementBack {
+  @include animation(animate-banner-back 0.15s ease-in-out);
+}
+
+.animateTitleForward {
+  @include animation(animate-title-forward 0.4s ease-in-out);
+}
+.animateTitleBack {
+  @include animation(animate-title-back 0.4s ease-in-out);
+}
+@include keyframes(animate-banner-forward) {
+  0% {
+    transform: translateX(0%);
+    filter: blur(0px);
+  }
+
+  100% {
+    filter: blur(100px);
+    transform: translateX(100%);
   }
 }
 
-.image-slide {
-  width: calc(100% - 100px);
-  height: calc(40vh - 100px);
-  padding: 50px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: background-image 0.5s ease-in-out;
+@include keyframes(animate-banner-back) {
+  0% {
+    transform: translateX(0%);
+    filter: blur(0px);
+  }
+
+  100% {
+    filter: blur(100px);
+    transform: translateX(-100%);
+  }
 }
 
-.image-slide h1 {
-  color: $white;
+@include keyframes(animate-title-forward) {
+  0% {
+    transform: translateX(1000px);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.image-slide span {
-  color: $white;
+@include keyframes(animate-title-back) {
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@include keyframes(rubber-band) {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@include keyframes(bounce-in) {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    // -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    // transform: scale3d(0.3, 0.3, 0.3);
+    @include transform(scale3d(0.3, 0.3, 0.3));
+  }
+
+  20% {
+    // -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    // transform: scale3d(1.1, 1.1, 1.1);
+    @include transform(scale3d(1.1, 1.1, 1.1));
+  }
+
+  40% {
+    // -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    // transform: scale3d(0.9, 0.9, 0.9);
+    @include transform(scale3d(0.9, 0.9, 0.9));
+  }
+
+  60% {
+    opacity: 1;
+    // -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    // transform: scale3d(1.03, 1.03, 1.03);
+    @include transform(scale3d(1.03, 1.03, 1.03));
+  }
+
+  80% {
+    // -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    // transform: scale3d(0.97, 0.97, 0.97);
+    @include transform(scale3d(0.97, 0.97, 0.97));
+  }
+
+  to {
+    opacity: 1;
+    // -webkit-transform: scale3d(1, 1, 1);
+    // transform: scale3d(1, 1, 1);
+    @include transform(scale3d(1, 1, 1));
+  }
 }
