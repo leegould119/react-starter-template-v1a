@@ -13,13 +13,14 @@ export default class componentName extends Component {
       >
         <div
           style={{
-            marginTop: "150px",
-            padding: "30px"
+            marginTop: "50px",
+            padding: "50px"
           }}
           id={"body" + data.id}
         >
           <h1>{data.title}</h1>
-          <span>{data.body}</span>
+          <br />
+          <p>{data.body}</p>
           <Button
             link={data.buttonLink}
             target={data.target}

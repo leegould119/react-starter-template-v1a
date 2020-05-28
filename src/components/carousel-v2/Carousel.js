@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
-import { NextButton, BackButton, ImageSlide } from "../carousel-v2/";
+import {
+  NextButton,
+  BackButton,
+  ImageSlide,
+  BannerButtons
+} from "../carousel-v2/";
 
 import imageUrls from "./carouselData";
 
@@ -11,7 +16,8 @@ class Carousel extends Component {
       pageNum: 0,
       intervalId: "",
       maxIndex: imageUrls.length - 1,
-      intervalTime: 5000
+      intervalTime: 5000,
+      buttonData: imageUrls
     };
   }
 
@@ -95,13 +101,14 @@ class Carousel extends Component {
   };
 
   render() {
-    let { pageNum } = this.state;
+    let { pageNum, buttonData } = this.state;
     let data = imageUrls[pageNum];
     console.log("page number: " + pageNum);
     return (
       <div className=" carousel">
         <BackButton prev={this.prev} />
         <ImageSlide data={data} />
+        <BannerButtons data={buttonData} />
         <NextButton next={this.next} />
       </div>
     );
