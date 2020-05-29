@@ -65,7 +65,6 @@ class Carousel extends Component {
   };
 
   addNextAnimation = (pageNum) => {
-    console.log("next animation page number : " + pageNum);
     let currentSlide = document.getElementById("slide" + pageNum);
     let currentBody = document.getElementById("body" + pageNum);
     currentSlide.classList.remove("animateElementBack");
@@ -94,7 +93,6 @@ class Carousel extends Component {
   };
 
   addBackAnimation = (pageNum) => {
-    console.log(" back animation page number : " + pageNum);
     let currentSlide = document.getElementById("slide" + pageNum);
     let currentBody = document.getElementById("body" + pageNum);
     currentSlide.classList.remove("animateElementBack");
@@ -108,7 +106,6 @@ class Carousel extends Component {
   };
 
   addSlideActiveClass = (pageNum) => {
-    console.log(pageNum);
     let { data } = this.state;
     const newData = [...data];
 
@@ -121,7 +118,6 @@ class Carousel extends Component {
       newData[pageNum].isActive = true;
     }
     this.setState({ data: newData });
-    // clearInterval(this.intervalId);
   };
 
   addActiveClass = (event) => {

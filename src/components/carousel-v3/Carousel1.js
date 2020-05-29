@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import data from "./data";
-import { BackButton, NextButton } from "../carousel-v3";
+import { BackButton, NextButton, Slide } from "../carousel-v3";
 class Carousel1 extends Component {
   constructor(props) {
     super(props);
@@ -8,20 +8,29 @@ class Carousel1 extends Component {
       pageCount: null,
       pageNumber: null,
       startingPage: 1,
-      itemsPerPage: 4,
+      itemsPerPage: 3,
+      totalCols: 12,
+      columns: null,
       dataLenght: data.length,
-      data: data
+      data: data,
+      dataSlice: []
     };
   }
 
   componentDidMount = () => {
-    let { itemsPerPage, dataLenght, startingPage } = this.state;
+    let { itemsPerPage, dataLenght, startingPage, totalCols } = this.state;
+
     let pageCount = parseInt(dataLenght / itemsPerPage);
+
+    let columnNumer = totalCols / itemsPerPage;
+    let columns = "col-" + columnNumer;
+
     let pageNumber = startingPage;
     this.setState({ pageCount: pageCount });
     this.setState({ pageNumber: pageNumber });
+    this.setState({ columns: columns });
     setTimeout(() => {
-      this.getData(startingPage);
+      this.getData();
     }, 50);
   };
   next = () => {
@@ -47,29 +56,35 @@ class Carousel1 extends Component {
   };
 
   getData = () => {
-    let { data, itemsPerPage, pageNumber } = this.state;
+    let { data, itemsPerPage, pageNumber, dataSlice } = this.state;
+
     const upperLimit = pageNumber * itemsPerPage;
-    let dataSlice = data.slice(upperLimit - itemsPerPage, upperLimit);
-    console.log(JSON.stringify(dataSlice));
+    console.log("upper limit " + upperLimit);
+
+    let newData = data.slice(upperLimit - itemsPerPage, upperLimit);
+    this.setState({ dataSlice: newData });
+
+    // console.log(dataSlice);
   };
 
   render() {
-    let { itemsPerPage, data, dataLenght, pageCount, pageNumber } = this.state;
-    console.log("items per page : " + itemsPerPage);
-    console.log("data length : " + dataLenght);
-    console.log("page count : " + pageCount);
-    // console.log("data : " + JSON.stringify(data));
+    let {
+      itemsPerPage,
+      data,
+      columns,
+      dataLenght,
+      pageCount,
+      pageNumber,
+      dataSlice
+    } = this.state;
     console.log("page number : " + pageNumber);
+    console.log(dataSlice);
     return (
       <div className="carousel" style={{ height: "400px" }}>
         <BackButton prev={this.prev} />
-        <div className="container">
-          <div className="row">
-            <div className="col-3">content holder</div>
-            <div className="col-3">content holder</div>
-            <div className="col-3">content holder</div>
-            <div className="col-3">content holder</div>
-          </div>
+        <div className="container padding-top-bottom">
+          <h1> Slider 1</h1>
+          <Slide data={dataSlice} columns={columns} />
         </div>
         <NextButton next={this.next} />
       </div>
