@@ -92,31 +92,31 @@ const data = [
   },
   {
     id: 15,
-    title: "title 11",
+    title: "title 16",
     body:
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 16,
-    title: "title 12",
+    title: "title 17",
     body:
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 17,
-    title: "title 13",
+    title: "title 18",
     body:
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 18,
-    title: "title 14",
+    title: "title 19",
     body:
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   },
   {
     id: 19,
-    title: "title 15",
+    title: "title 20",
     body:
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis."
   }

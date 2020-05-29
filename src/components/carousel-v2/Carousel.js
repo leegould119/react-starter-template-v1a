@@ -16,8 +16,9 @@ class Carousel extends Component {
       pageNum: 0,
       intervalId: "",
       maxIndex: imageUrls.length - 1,
-      intervalTime: 5000,
-      buttonData: imageUrls
+      intervalTime: 7000,
+      buttonData: imageUrls,
+      data: imageUrls
     };
   }
 
@@ -29,29 +30,36 @@ class Carousel extends Component {
     const id = new Date().getSeconds().toString() + "INTERVAL_ID";
     this.setState({ intervalId: id });
     this.animateBanner();
+    let number = 0;
+    this.addSlideActiveClass(number);
   };
 
   animateBanner = () => {
     let { intervalTime } = this.state;
-
     this.intervalId = setInterval(() => {
       let { pageNum, maxIndex } = this.state;
       if (pageNum == maxIndex) {
         this.setState({ pageNum: 0 });
+        let number = 0;
+        this.addSlideActiveClass(number);
       } else {
         this.setState({ pageNum: this.state.pageNum + 1 });
+        let number = pageNum + 1;
+        this.addSlideActiveClass(number);
       }
     }, intervalTime);
   };
 
-  next = () => {
-    clearInterval(this.intervalId);
+  next = async () => {
     let { pageNum, maxIndex } = this.state;
     if (pageNum == maxIndex) {
       this.setState({ pageNum: 0 });
+      this.addSlideActiveClass(0);
       this.addNextAnimation(pageNum);
     } else {
       this.setState({ pageNum: this.state.pageNum + 1 });
+      let number = pageNum + 1;
+      this.addSlideActiveClass(number);
       this.addNextAnimation(pageNum);
     }
   };
@@ -72,13 +80,15 @@ class Carousel extends Component {
   };
 
   prev = () => {
-    clearInterval(this.intervalId);
     let { pageNum, maxIndex } = this.state;
     if (pageNum == 0) {
       this.setState({ pageNum: maxIndex });
+      this.addSlideActiveClass(maxIndex);
       this.addBackAnimation(pageNum);
     } else {
       this.setState({ pageNum: this.state.pageNum - 1 });
+      let number = pageNum - 1;
+      this.addSlideActiveClass(number);
       this.addBackAnimation(pageNum);
     }
   };
@@ -94,7 +104,45 @@ class Carousel extends Component {
     setTimeout(() => {
       currentSlide.classList.add("animateElementBack");
       currentBody.classList.add("animateTitleBack");
-    }, 5);
+    }, 50);
+  };
+
+  addSlideActiveClass = (pageNum) => {
+    console.log(pageNum);
+    let { data } = this.state;
+    const newData = [...data];
+
+    newData.forEach((value) => {
+      value.isActive = false;
+    });
+    if (newData[pageNum].isActive == true) {
+      newData[pageNum].isActive = false;
+    } else {
+      newData[pageNum].isActive = true;
+    }
+    this.setState({ data: newData });
+    // clearInterval(this.intervalId);
+  };
+
+  addActiveClass = (event) => {
+    let ID = event.currentTarget.id,
+      pageNumber = parseInt(ID),
+      { data } = this.state;
+
+    const newData = [...data];
+
+    newData.forEach((value) => {
+      value.isActive = false;
+    });
+
+    if (newData[pageNumber].isActive == true) {
+      newData[pageNumber].isActive = false;
+    } else {
+      newData[pageNumber].isActive = true;
+    }
+
+    this.setState({ data: newData });
+    this.setState({ pageNum: pageNumber });
   };
 
   componentWillUnmount = () => {
@@ -104,16 +152,11 @@ class Carousel extends Component {
   render() {
     let { pageNum, buttonData } = this.state;
     let data = imageUrls[pageNum];
-    console.log("page number: " + pageNum);
     return (
       <div className=" carousel">
         <BackButton prev={this.prev} />
         <ImageSlide data={data} />
-        <BannerButtons
-          data={buttonData}
-          pageNum={pageNum}
-          click={this.bannerButttonEvent}
-        />
+        <BannerButtons data={buttonData} click={this.addActiveClass} />
         <NextButton next={this.next} />
       </div>
     );

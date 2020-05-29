@@ -5,32 +5,19 @@ class BannerButtons extends Component {
     super(props);
     this.state = {
       data: this.props.data
-      // isActive: false
     };
   }
-  componentWillMount = () => {
-    // this.addActiveClass();
-  };
-
-  addActiveClass = () => {
-    // let { isActive } = this.state;
-    this.setState({ isActive: !this.isActive });
-  };
 
   render() {
     const { data } = this.state;
-    let { click } = this.props;
-
     let buttons = data.map((data, idx) => {
       return (
         <a
           title={data.title}
-          className={
-            data.isActive ? "banner-buttons " : "banner-buttons active"
-          }
+          className={data.isActive ? "banner-buttons active" : "banner-buttons"}
           key={data.id}
           id={data.id}
-          onClick={this.addActiveClass}
+          onClick={this.props.click}
         />
       );
     });

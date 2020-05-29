@@ -20,23 +20,37 @@ class Carousel1 extends Component {
     let pageNumber = startingPage;
     this.setState({ pageCount: pageCount });
     this.setState({ pageNumber: pageNumber });
+    setTimeout(() => {
+      this.getData(startingPage);
+    }, 50);
   };
   next = () => {
     let { pageCount, pageNumber, startingPage } = this.state;
 
     if (pageNumber == pageCount) {
       this.setState({ pageNumber: startingPage });
+      this.getData();
     } else {
       this.setState({ pageNumber: this.state.pageNumber + 1 });
+      this.getData();
     }
   };
   prev = () => {
     let { pageCount, pageNumber, startingPage } = this.state;
     if (pageNumber == startingPage) {
       this.setState({ pageNumber: pageCount });
+      this.getData();
     } else {
       this.setState({ pageNumber: this.state.pageNumber - 1 });
+      this.getData();
     }
+  };
+
+  getData = () => {
+    let { data, itemsPerPage, pageNumber } = this.state;
+    const upperLimit = pageNumber * itemsPerPage;
+    let dataSlice = data.slice(upperLimit - itemsPerPage, upperLimit);
+    console.log(JSON.stringify(dataSlice));
   };
 
   render() {

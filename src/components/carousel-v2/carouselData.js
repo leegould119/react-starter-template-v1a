@@ -13,7 +13,7 @@ const imageUrls = [
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
     hasButton: true,
     class: "button orange-btn",
-    target: "_self",
+    target: "_blank",
     buttonLink: "http://www.google.com",
     buttonTitle: "read more",
     isActive: false
@@ -26,7 +26,7 @@ const imageUrls = [
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
     hasButton: true,
     class: "button orange-btn",
-    target: "_self",
+    target: "_blank",
     buttonLink: "http://www.google.com",
     buttonTitle: "read more",
     isActive: false
@@ -39,7 +39,7 @@ const imageUrls = [
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
     hasButton: true,
     class: "button orange-btn",
-    target: "_self",
+    target: "_blank",
     buttonLink: "http://www.google.com",
     buttonTitle: "read more",
     isActive: false
@@ -52,7 +52,7 @@ const imageUrls = [
       "Non qui est cupidatat voluptate elit dolore nulla ipsum amet qui ea excepteur excepteur duis.",
     hasButton: true,
     class: "button orange-btn",
-    target: "_self",
+    target: "_blank",
     buttonLink: "http://www.google.com",
     buttonTitle: "read more",
     isActive: false
@@ -66,7 +66,7 @@ const imageUrls = [
     hasButton: true,
     class: "button orange-btn",
     buttonLink: "http://www.google.com",
-    target: "_self",
+    target: "_blank",
     buttonTitle: "read more",
     isActive: false
   }

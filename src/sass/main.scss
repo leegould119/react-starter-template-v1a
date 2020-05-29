@@ -174,10 +174,28 @@ $transition: ease-in-out 0.3s all;
     width: calc(100% - 100px);
     height: calc(40vh - 100px);
     padding: 50px;
+    position: relative;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     transition: background-image 0.5s ease-in-out;
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0px;
+    //   left: 0px;
+    //   right: 0px;
+    //   bottom: 0px;
+    //   display: block;
+
+    //   background: radial-gradient(
+    //     circle,
+    //     rgba(255, 255, 255, 0) 0%,
+    //     rgba(255, 255, 255, 0.1) 40%,
+    //     rgba(0, 0, 0, 0.2) 60%,
+    //     rgba(0, 0, 0, 0.6) 100%
+    //   );
+    // }
   }
 
   .black-background {
@@ -204,22 +222,24 @@ $transition: ease-in-out 0.3s all;
     right: 40px;
   }
   .banner-buttons {
-    width: 15px;
-    height: 15px;
-    border: 1px solid $dark-grey;
-    background-color: $white;
+    width: 12px;
+    height: 12px;
+    border: 3px solid $dark-grey;
+    background-color: $dark-orange;
     display: inline-block;
     border-radius: 50%;
     margin-left: 5px;
     margin-right: 5px;
+
     cursor: pointer;
     transition: $transition;
     &:hover {
-      background-color: $dark-orange;
+      background-color: $light-grey;
     }
   }
   .active {
-    background-color: $dark-grey;
+    border: 3px solid $dark-grey;
+    background-color: $light-grey;
   }
 }
 // animations
