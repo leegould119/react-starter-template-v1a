@@ -16,7 +16,7 @@ const data = [
       icon: ""
     },
     button: {
-      hasButton: true,
+      hasButton: false,
       buttonType: "orange-btn",
       text: "read more"
     },

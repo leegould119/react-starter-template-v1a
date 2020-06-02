@@ -85,7 +85,8 @@ body {
 $transition: ease-in-out 0.3s all;
 .carousel {
   width: 100%;
-  height: auto;
+  min-height: 400px;
+  max-height: 800px;
   position: relative;
   background-color: $dark-grey;
   overflow: hidden;
@@ -218,7 +219,7 @@ $transition: ease-in-out 0.3s all;
   }
   .banner-buttons-wrapper {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     right: 40px;
   }
   .banner-buttons {

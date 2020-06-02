@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import data from "./data";
 import { BackButton, NextButton, Slide } from "../carousel-v3";
+import deviceDetection from "../../utils/deviceDetection";
 class Carousel1 extends Component {
   constructor(props) {
     super(props);
@@ -11,52 +12,59 @@ class Carousel1 extends Component {
       itemsPerPage: 3,
       totalCols: 12,
       columns: null,
-      dataLenght: data.length,
+      dataLenght: data.length + 1,
       data: data,
-      dataSlice: []
+      dataSlice: [],
+      deviceDetection: deviceDetection,
+      device: ""
     };
   }
 
   componentDidMount = () => {
     let { itemsPerPage, dataLenght, startingPage, totalCols } = this.state;
-
+    let Device = this.state.deviceDetection();
     let pageCount = parseInt(dataLenght / itemsPerPage);
-
     let columnNumer = totalCols / itemsPerPage;
     let columns = "col-" + columnNumer;
-
     let pageNumber = startingPage;
     this.setState({ pageCount: pageCount });
     this.setState({ pageNumber: pageNumber });
     this.setState({ columns: columns });
-    setTimeout(() => {
-      this.getData();
-    }, 50);
+    this.getData(pageNumber);
   };
+
+  componentDidUpdate = () => {
+    let Device = this.state.deviceDetection();
+    let { device } = this.state;
+    // this.setState({ device: Device });
+  };
+
   next = () => {
     let { pageCount, pageNumber, startingPage } = this.state;
 
     if (pageNumber == pageCount) {
       this.setState({ pageNumber: startingPage });
-      this.getData();
+      this.getData(pageNumber);
     } else {
       this.setState({ pageNumber: this.state.pageNumber + 1 });
-      this.getData();
+      this.getData(pageNumber);
     }
   };
-  prev = () => {
+  prev = async () => {
     let { pageCount, pageNumber, startingPage } = this.state;
+    // console.log("starting page: " + startingPage);
+    console.log("page count :" + pageCount);
     if (pageNumber == startingPage) {
-      this.setState({ pageNumber: pageCount });
-      this.getData();
+      await this.setState({ pageNumber: pageCount });
+      await this.getData(pageNumber);
     } else {
-      this.setState({ pageNumber: this.state.pageNumber - 1 });
-      this.getData();
+      await this.setState({ pageNumber: this.state.pageNumber - 1 });
+      await this.getData(pageNumber);
     }
   };
 
-  getData = () => {
-    let { data, itemsPerPage, pageNumber, dataSlice } = this.state;
+  getData = (pageNumber) => {
+    let { data, itemsPerPage, dataSlice } = this.state;
 
     const upperLimit = pageNumber * itemsPerPage;
     console.log("upper limit " + upperLimit);
@@ -77,10 +85,10 @@ class Carousel1 extends Component {
       pageNumber,
       dataSlice
     } = this.state;
-    console.log("page number : " + pageNumber);
+    console.log("page number" + pageNumber);
     console.log(dataSlice);
     return (
-      <div className="carousel" style={{ height: "400px" }}>
+      <div className="carousel">
         <BackButton prev={this.prev} />
         <div className="container padding-top-bottom">
           <h1> Slider 1</h1>
