@@ -7,7 +7,7 @@ class Carousel1 extends Component {
     super(props);
     this.state = {
       pageCount: null,
-      pageNumber: null,
+      pageNumber: 1,
       startingPage: 1,
       itemsPerPage: 3,
       totalCols: 12,
@@ -15,78 +15,95 @@ class Carousel1 extends Component {
       dataLenght: data.length + 1,
       data: data,
       dataSlice: [],
+      maxIndex: null,
       deviceDetection: deviceDetection,
-      device: ""
+      device: "",
+      intervalTime: 4000
     };
   }
 
-  componentDidMount = () => {
-    let { itemsPerPage, dataLenght, startingPage, totalCols } = this.state;
-    let Device = this.state.deviceDetection();
-    let pageCount = parseInt(dataLenght / itemsPerPage);
-    let columnNumer = totalCols / itemsPerPage;
-    let columns = "col-" + columnNumer;
-    let pageNumber = startingPage;
-    this.setState({ pageCount: pageCount });
-    this.setState({ pageNumber: pageNumber });
-    this.setState({ columns: columns });
-    this.getData(pageNumber);
-  };
+  componentDidMount = async () => {
+    let {
+      itemsPerPage,
+      dataLenght,
+      startingPage,
+      totalCols,
+      device
+    } = this.state;
 
-  componentDidUpdate = () => {
     let Device = this.state.deviceDetection();
-    let { device } = this.state;
-    // this.setState({ device: Device });
+    let columnNumber = null,
+      columns,
+      pageCount;
+
+    console.log(Device);
+    if (Device == "Android" || Device == "iOS") {
+      columns = "col-6-sm";
+
+      await this.setState({ itemsPerPage: 2 }, function () {
+        pageCount = parseInt(dataLenght / 2);
+        console.log("page count: " + pageCount);
+        console.log("page count: " + itemsPerPage);
+      });
+    } else {
+      columnNumber = totalCols / itemsPerPage;
+      columns = "col-" + columnNumber;
+      pageCount = parseInt(dataLenght / itemsPerPage);
+    }
+
+    this.setState({
+      pageCount: pageCount,
+      columns: columns,
+      device: Device
+    });
+    this.getData();
   };
 
   next = () => {
     let { pageCount, pageNumber, startingPage } = this.state;
-
     if (pageNumber == pageCount) {
-      this.setState({ pageNumber: startingPage });
-      this.getData(pageNumber);
+      this.setState({ pageNumber: startingPage }, function () {
+        this.getData();
+      });
     } else {
-      this.setState({ pageNumber: this.state.pageNumber + 1 });
-      this.getData(pageNumber);
+      this.setState({ pageNumber: this.state.pageNumber + 1 }, function () {
+        this.getData();
+      });
     }
   };
-  prev = async () => {
+
+  prev = () => {
     let { pageCount, pageNumber, startingPage } = this.state;
-    // console.log("starting page: " + startingPage);
-    console.log("page count :" + pageCount);
     if (pageNumber == startingPage) {
-      await this.setState({ pageNumber: pageCount });
-      await this.getData(pageNumber);
+      this.setState({ pageNumber: pageCount }, function () {
+        this.getData();
+      });
     } else {
-      await this.setState({ pageNumber: this.state.pageNumber - 1 });
-      await this.getData(pageNumber);
+      this.setState({ pageNumber: this.state.pageNumber - 1 }, function () {
+        this.getData();
+      });
     }
   };
 
-  getData = (pageNumber) => {
-    let { data, itemsPerPage, dataSlice } = this.state;
-
+  getData = () => {
+    let { data, itemsPerPage, dataSlice, pageNumber } = this.state;
     const upperLimit = pageNumber * itemsPerPage;
-    console.log("upper limit " + upperLimit);
-
+    this.setState({ upperLimit: upperLimit });
     let newData = data.slice(upperLimit - itemsPerPage, upperLimit);
     this.setState({ dataSlice: newData });
-
-    // console.log(dataSlice);
   };
 
   render() {
     let {
       itemsPerPage,
-      data,
+
       columns,
       dataLenght,
       pageCount,
+      dataSlice,
       pageNumber,
-      dataSlice
+      device
     } = this.state;
-    console.log("page number" + pageNumber);
-    console.log(dataSlice);
     return (
       <div className="carousel">
         <BackButton prev={this.prev} />

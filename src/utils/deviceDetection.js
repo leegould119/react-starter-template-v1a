@@ -27,10 +27,17 @@ const detectDevices = () => {
   };
 
   if (isMobile.Android()) {
-    console.log(" is android");
-  }
-  if (isMobile.iOS()) {
-    console.log("is iphone");
+    return "Android";
+  } else if (isMobile.iOS()) {
+    return "iOS";
+  } else if (isMobile.BlackBerry()) {
+    return "Blackberry";
+  } else if (isMobile.Opera()) {
+    return "Opera Mini";
+  } else if (isMobile.Windows()) {
+    return "ieMobile";
+  } else {
+    return "Desktop";
   }
 };
 export default detectDevices;

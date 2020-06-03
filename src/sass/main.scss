@@ -199,6 +199,62 @@ $transition: ease-in-out 0.3s all;
     // }
   }
 
+  // @include respond(retina, min-width, 320px) {
+  //   .nextButton {
+  //     right: 10px;
+  //   }
+  //   .backButton {
+  //     left: 10px;
+  //   }
+  //   .image-slide {
+  //     width: calc(100% - 100px);
+  //     height: calc(60vh - 100px);
+  //     padding: 50px;
+  //   }
+  // }
+
+  // @include respond(non-retina, min-width, 320px) {
+  //   .nextButton {
+  //     right: 10px;
+  //   }
+  //   .backButton {
+  //     left: 10px;
+  //   }
+  //   .image-slide {
+  //     width: calc(100% - 100px);
+  //     height: calc(60vh - 100px);
+  //     padding: 50px;
+  //   }
+  // }
+
+  // @include respond(non-retina, min-width, 700px) {
+  //   .nextButton {
+  //     right: 10px;
+  //   }
+  //   .backButton {
+  //     left: 10px;
+  //   }
+  //   .image-slide {
+  //     width: calc(100% - 100px);
+  //     height: calc(100vh - 100px);
+  //     padding: 50px;
+  //   }
+  // }
+
+  // @include respond(retina, min-width, 568px) {
+  //   .nextButton {
+  //     right: 40px;
+  //   }
+  //   .backButton {
+  //     left: 40px;
+  //   }
+  //   .image-slide {
+  //     width: calc(100% - 100px);
+  //     height: calc(100vh - 100px);
+  //     padding: 50px;
+  //   }
+  // }
+
   .black-background {
     background-color: $light-orange;
   }

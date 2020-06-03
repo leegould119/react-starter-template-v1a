@@ -43,3 +43,21 @@
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
 }
+
+@mixin respond($breakpoint, $direction, $size) {
+  @if $breakpoint == non-retina {
+    @media only screen and($direction: $size) {
+      @content;
+    }
+  }
+  @if $breakpoint == retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and ($direction: $size),
+      only screen and (min--moz-device-pixel-ratio: 2) and ($direction: $size),
+      only screen and (-o-min-device-pixel-ratio: 2/1) and ($direction: $size),
+      only screen and (min-device-pixel-ratio: 2) and ($direction: $size),
+      only screen and (min-resolution: 192dpi) and ($direction: $size),
+      only screen and (min-resolution: 2dppx) and ($direction: $size) {
+      @content;
+    }
+  }
+}
