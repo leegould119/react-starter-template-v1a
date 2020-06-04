@@ -14,12 +14,72 @@ body {
 /* -----------------------------------------------------------------
     HEADER
 ------------------------------------------------------------------- */
+$transition: ease-in-out 0.6s;
+
 .header {
   background-color: $dark-grey;
-  height: 40px;
+  height: 50px;
+
+  width: 100%;
+  z-index: 3001;
 }
+.header div.container {
+  position: relative;
+}
+
 .header nav {
-  padding-top: 8px;
+  position: absolute;
+  right: -50px;
+  top: 50px;
+  display: block;
+  transition: $transition;
+  padding-top: 12px;
+  float: right;
+  z-index: 3002;
+  width: 250px;
+  height: auto;
+  background-color: $dark-grey;
+  overflow: hidden;
+}
+
+.home-icon {
+  background-image: url("../img/home-solid.svg");
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.projects-icon {
+  background-image: url("../img/briefcase-solid.svg");
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.gallery-icon {
+  background-image: url("../img/sd-card-solid.svg");
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.header nav.hidden {
+  display: none;
+
+  // transform: translateY(-50px);
+}
+.header nav.visible {
+  display: block;
+  // transform: translateY(0px);
 }
 
 .header a {
@@ -27,7 +87,84 @@ body {
   text-decoration: none;
   font-family: $roboto-condensed;
   text-transform: uppercase;
-  padding: 0px 0px 10px 10px;
+  padding: 10px;
+  display: block;
+  width: calc(100% - 20px);
+  &:hover {
+    border-left: 5px solid $light-orange;
+  }
+  &.active {
+    background-color: $dark-orange;
+  }
+}
+
+#nav-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  float: right;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: $white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+  top: 5px;
+}
+
+#nav-icon span:nth-child(2) {
+  top: 15px;
+}
+
+#nav-icon span:nth-child(3) {
+  top: 25px;
+}
+
+#nav-icon.open span:nth-child(1) {
+  top: 15px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#nav-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon.open span:nth-child(3) {
+  top: 15px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 /* -----------------------------------------------------------------
@@ -199,6 +336,7 @@ $transition: ease-in-out 0.3s all;
     // }
   }
 
+  // small devices
   // @include respond(retina, min-width, 320px) {
   //   .nextButton {
   //     right: 10px;
@@ -227,7 +365,7 @@ $transition: ease-in-out 0.3s all;
   //   }
   // }
 
-  // @include respond(non-retina, min-width, 700px) {
+  // @include respond(non-retina, min-width, 568px) {
   //   .nextButton {
   //     right: 10px;
   //   }
@@ -266,6 +404,7 @@ $transition: ease-in-out 0.3s all;
     background-color: $dark-grey;
     padding: 10px;
   }
+
   .image-slide p {
     width: auto;
     display: inline-block;
@@ -273,11 +412,13 @@ $transition: ease-in-out 0.3s all;
     color: $white;
     background-color: $dark-grey;
   }
+
   .banner-buttons-wrapper {
     position: absolute;
     bottom: 20px;
     right: 40px;
   }
+
   .banner-buttons {
     width: 12px;
     height: 12px;
@@ -294,6 +435,7 @@ $transition: ease-in-out 0.3s all;
       background-color: $light-grey;
     }
   }
+
   .active {
     border: 3px solid $dark-grey;
     background-color: $light-grey;

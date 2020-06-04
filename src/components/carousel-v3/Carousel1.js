@@ -96,7 +96,6 @@ class Carousel1 extends Component {
   render() {
     let {
       itemsPerPage,
-
       columns,
       dataLenght,
       pageCount,
