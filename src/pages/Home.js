@@ -10,6 +10,7 @@ import HeaderTag from "../components/elements/headerTag";
 
 import { Carousel } from "../components/carousel-v2";
 import { Carousel as PromoCarousel } from "../components/carousel-v3";
+import Modal from "../components/modal";
 class homePage extends Component {
   constructor(props) {
     super(props);
@@ -196,9 +197,11 @@ class homePage extends Component {
 
     return (
       <React.Fragment>
+        <Modal />
         <Carousel />
         <PromoCarousel />
         <HeaderTag title={title} />
+
         <FourColumnsLayout vals={projects} />
         <ThreeColumnLayout vals={threeColumnLayout} />
         <ThreeColumnLayout vals={threeColumnLayoutTwo} />

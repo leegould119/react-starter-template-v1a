@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import ScrollToTop from "./scrollToTop";
 class navigation extends Component {
   constructor(props) {
     super(props);
@@ -35,76 +35,73 @@ class navigation extends Component {
     let { open, path } = this.state;
     return (
       <header className="header">
-        <div className="container">
-          <div
-            id="nav-icon"
-            className={open ? "open" : "closed"}
-            onClick={this.animateMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <nav
-            onClick={this.animateMenu}
-            className={open ? "visible" : "hidden"}
-          >
-            {(() => {
-              if (path === "/") {
-                return (
-                  <Link className="active" to="/">
-                    <span className="home-icon" />
-                    Home
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link to="/">
-                    <span className="home-icon" />
-                    Home
-                  </Link>
-                );
-              }
-            })()}
-
-            {(() => {
-              if (path === "/projects") {
-                return (
-                  <Link className="active" to="/projects">
-                    <span className="projects-icon" />
-                    Projects
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link to="/projects">
-                    <span className="projects-icon" />
-                    Projects
-                  </Link>
-                );
-              }
-            })()}
-
-            {(() => {
-              if (path === "/gallery") {
-                return (
-                  <Link className="active" to="/gallery">
-                    <span className="gallery-icon" />
-                    Gallery
-                  </Link>
-                );
-              } else {
-                return (
-                  <Link to="/gallery">
-                    <span className="gallery-icon" />
-                    Gallery
-                  </Link>
-                );
-              }
-            })()}
-          </nav>
+        {/* <div className="container"> */}
+        <div
+          id="nav-icon"
+          className={open ? "open" : "closed"}
+          onClick={this.animateMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
+        <nav onClick={this.animateMenu} className={open ? "visible" : "hidden"}>
+          {(() => {
+            if (path === "/") {
+              return (
+                <Link className="active" to="/">
+                  <span className="home-icon" />
+                  Home
+                </Link>
+              );
+            } else {
+              return (
+                <Link to="/">
+                  <span className="home-icon" />
+                  Home
+                </Link>
+              );
+            }
+          })()}
+
+          {(() => {
+            if (path === "/projects") {
+              return (
+                <Link className="active" to="/projects">
+                  <span className="projects-icon" />
+                  Projects
+                </Link>
+              );
+            } else {
+              return (
+                <Link to="/projects">
+                  <span className="projects-icon" />
+                  Projects
+                </Link>
+              );
+            }
+          })()}
+
+          {(() => {
+            if (path === "/gallery") {
+              return (
+                <Link className="active" to="/gallery">
+                  <span className="gallery-icon" />
+                  Gallery
+                </Link>
+              );
+            } else {
+              return (
+                <Link to="/gallery">
+                  <span className="gallery-icon" />
+                  Gallery
+                </Link>
+              );
+            }
+          })()}
+        </nav>
+        <ScrollToTop />
       </header>
     );
   }
