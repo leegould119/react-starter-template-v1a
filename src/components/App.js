@@ -13,11 +13,13 @@ import Gallery from "../pages/Gallery";
 import Navigation from "./common/navigation";
 
 import history from "./common/history";
+import DetectScreenDimensions from "../utils/detectScreenDimension";
 
 export default class componentName extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      screenWidth: null,
       generalStyles: {
         fontColors: {
           lightOrange: "light-orange-color",
@@ -35,12 +37,15 @@ export default class componentName extends Component {
       }
     };
   }
+
   render() {
-    let { generalStyles } = this.state;
+    let { generalStyles, screenWidth } = this.state;
+    console.log("screen width : " + screenWidth);
     return (
       <React.Fragment>
         <Router history={history}>
           <Navigation />
+          {/* <DetectScreenDimensions /> */}
           <Switch>
             <Route
               exact

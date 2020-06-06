@@ -8,6 +8,7 @@ class Slide extends Component {
       dataSlice: this.props.data
     };
   }
+
   render() {
     let { data, columns } = this.props;
     let cols = data.map((data, idx) => {
@@ -45,24 +46,19 @@ class Slide extends Component {
             ""
           )}
           <h2>{data.title}</h2>
-          <p>{data.body}</p>
+          <p>{data.description}</p>
           {data.button.hasButton ? (
             <Button
-              link="#"
+              link=""
               classes={"button " + data.button.buttonType}
               buttonTitle={data.button.text}
-              targe={""}
+              target={""}
+              buttonId={data.id}
+              handleClick={this.props.toggleShowHideElement}
             />
           ) : (
             ""
           )}
-          {/* {(() => {
-            if ((data.button.hasButton = true)) {
-              return <Button />;
-            } else {
-              return false;
-            }
-          })()} */}
         </div>
       );
     });

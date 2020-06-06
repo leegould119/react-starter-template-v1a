@@ -13,10 +13,10 @@
   position: absolute;
   background-color: $dark-grey;
   width: 300px;
-  height: auto;
+  height: 300px;
   left: calc(50% - 150px);
   right: calc(50% - 150px);
-  top: calc(50% - 250px);
+  top: calc(50% - 150px);
   overflow: hidden;
 }
 .modal-header {

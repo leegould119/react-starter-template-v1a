@@ -11,6 +11,7 @@ import HeaderTag from "../components/elements/headerTag";
 import { Carousel } from "../components/carousel-v2";
 import { Carousel as PromoCarousel } from "../components/carousel-v3";
 import Modal from "../components/modal";
+
 class homePage extends Component {
   constructor(props) {
     super(props);
@@ -190,11 +191,11 @@ class homePage extends Component {
       title,
       projects,
       threeColumnLayout,
-      threeColumnLayoutTwo
+      threeColumnLayoutTwo,
+      showComp
     } = this.state;
     // styles
     let { generalStyles } = this.props;
-
     return (
       <React.Fragment>
         <Modal />

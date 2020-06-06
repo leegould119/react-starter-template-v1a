@@ -125,7 +125,6 @@ $transition: ease-in-out 0.6s;
   height: 5px;
   width: 100%;
   background: $white;
-  border-radius: 9px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -231,6 +230,7 @@ $transition: ease-in-out 0.3s all;
   position: relative;
   background-color: $dark-grey;
   overflow: hidden;
+  color: $white;
 
   .nextButton,
   .backButton {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import data from "./data";
 import { BackButton, NextButton, Slide } from "../carousel-v3";
 import deviceDetection from "../../utils/deviceDetection";
+import TComp from "../../components/pageLayouts/experimental";
 class Carousel1 extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,8 @@ class Carousel1 extends Component {
       maxIndex: null,
       deviceDetection: deviceDetection,
       device: "",
-      intervalTime: 4000
+      intervalTime: 4000,
+      currrentId: null
     };
   }
 
@@ -93,6 +95,27 @@ class Carousel1 extends Component {
     this.setState({ dataSlice: newData });
   };
 
+  toggleShowHideElement = async (e) => {
+    let { data } = this.state;
+
+    e.preventDefault();
+    let id = e.target.id;
+    console.log("id " + id);
+    const newData = [...data];
+
+    if (newData[id].subContentIsVisible == false) {
+      newData.forEach((value) => {
+        value.subContentIsVisible = false;
+      });
+
+      newData[id].subContentIsVisible = true;
+    } else if (newData[id].subContentIsVisible == true) {
+      newData[id].subContentIsVisible = false;
+    }
+
+    this.setState({ data: newData });
+  };
+
   render() {
     let {
       itemsPerPage,
@@ -100,18 +123,25 @@ class Carousel1 extends Component {
       dataLenght,
       pageCount,
       dataSlice,
-      pageNumber,
-      device
+      pageNumber
     } = this.state;
+
     return (
-      <div className="carousel">
-        <BackButton prev={this.prev} />
-        <div className="container padding-top-bottom">
-          <h1> Slider 1</h1>
-          <Slide data={dataSlice} columns={columns} />
+      <React.Fragment>
+        <div className="carousel">
+          <BackButton prev={this.prev} />
+          <div className="container padding-top-bottom">
+            <h1> Slider 1</h1>
+            <Slide
+              data={dataSlice}
+              columns={columns}
+              toggleShowHideElement={this.toggleShowHideElement}
+            />
+          </div>
+          <NextButton next={this.next} />
         </div>
-        <NextButton next={this.next} />
-      </div>
+        <TComp data={dataSlice} handleClick={this.toggleShowHideElement} />
+      </React.Fragment>
     );
   }
 }

@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 
 class aButton extends Component {
-  handleClick = () => {
-    console.log("button clicked");
-  };
   render() {
-    let { link, classes, buttonTitle, target } = this.props;
+    let {
+      link,
+      classes,
+      buttonTitle,
+      target,
+      buttonId,
+      handleClick
+    } = this.props;
 
     return (
       <a
+        id={buttonId}
         href={link}
-        target={target ? target : "_parent"}
+        // target={target ? target : "_parent"}
         className={classes}
-        onClick={this.handleClick}
+        onClick={handleClick}
       >
         {buttonTitle}
       </a>
