@@ -9,7 +9,7 @@ class Slide extends Component {
     };
   }
   render() {
-    let { data, columns } = this.props;
+    let { data, columns, togglePanel } = this.props;
     let cols = data.map((data, idx) => {
       return (
         <div key={idx} id={data.id} className={columns}>
@@ -49,9 +49,11 @@ class Slide extends Component {
           {data.button.hasButton ? (
             <Button
               link="#"
+              id={data.id}
               classes={"button " + data.button.buttonType}
               buttonTitle={data.button.text}
               targe={""}
+              togglePanel={togglePanel}
             />
           ) : (
             ""

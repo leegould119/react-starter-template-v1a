@@ -9,6 +9,7 @@ import icon3 from "../../img/design-white.svg";
 const data = [
   {
     id: 0,
+    showHidePanel: false,
     images: {
       img: image1
     },
@@ -16,7 +17,7 @@ const data = [
       icon: ""
     },
     button: {
-      hasButton: false,
+      hasButton: true,
       buttonType: "orange-btn",
       text: "read more"
     },
@@ -26,6 +27,7 @@ const data = [
   },
   {
     id: 1,
+    showHidePanel: false,
     images: {
       img: image2
     },
@@ -43,6 +45,7 @@ const data = [
   },
   {
     id: 2,
+    showHidePanel: false,
     images: {
       img: image3
     },
@@ -60,6 +63,7 @@ const data = [
   },
   {
     id: 3,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -77,6 +81,7 @@ const data = [
   },
   {
     id: 4,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -94,6 +99,7 @@ const data = [
   },
   {
     id: 5,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -111,6 +117,7 @@ const data = [
   },
   {
     id: 6,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -128,6 +135,7 @@ const data = [
   },
   {
     id: 7,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -145,6 +153,7 @@ const data = [
   },
   {
     id: 8,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -162,6 +171,7 @@ const data = [
   },
   {
     id: 9,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -179,6 +189,7 @@ const data = [
   },
   {
     id: 10,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -196,6 +207,7 @@ const data = [
   },
   {
     id: 11,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -213,6 +225,7 @@ const data = [
   },
   {
     id: 12,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -230,6 +243,7 @@ const data = [
   },
   {
     id: 13,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -247,6 +261,7 @@ const data = [
   },
   {
     id: 14,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -264,6 +279,7 @@ const data = [
   },
   {
     id: 15,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -281,6 +297,7 @@ const data = [
   },
   {
     id: 16,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -298,6 +315,7 @@ const data = [
   },
   {
     id: 17,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -315,6 +333,7 @@ const data = [
   },
   {
     id: 18,
+    showHidePanel: false,
     images: {
       img: ""
     },
@@ -332,6 +351,7 @@ const data = [
   },
   {
     id: 19,
+    showHidePanel: false,
     images: {
       img: ""
     },

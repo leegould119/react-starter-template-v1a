@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import data from "./data";
 import { BackButton, NextButton, Slide } from "../carousel-v3";
 import deviceDetection from "../../utils/deviceDetection";
+
+import FlyoutPanel from "../../components/pageLayouts/flyoutPanel";
 class Carousel1 extends Component {
   constructor(props) {
     super(props);
@@ -93,6 +95,25 @@ class Carousel1 extends Component {
     this.setState({ dataSlice: newData });
   };
 
+  togglePanel = (e) => {
+    e.preventDefault();
+    let id = e.target.id;
+    console.log("id " + id);
+
+    let newData = [...data];
+
+    if (newData[id].showHidePanel == true) {
+      newData[id].showHidePanel = false;
+    } else {
+      newData.forEach((value) => {
+        value.showHidePanel = false;
+      });
+      newData[id].showHidePanel = true;
+    }
+
+    this.setState({ data: newData });
+  };
+
   render() {
     let {
       itemsPerPage,
@@ -100,18 +121,26 @@ class Carousel1 extends Component {
       dataLenght,
       pageCount,
       dataSlice,
+      data,
       pageNumber,
       device
     } = this.state;
     return (
-      <div className="carousel">
-        <BackButton prev={this.prev} />
-        <div className="container padding-top-bottom">
-          <h1> Slider 1</h1>
-          <Slide data={dataSlice} columns={columns} />
+      <React.Fragment>
+        <div className="carousel">
+          <BackButton prev={this.prev} />
+          <div className="container padding-top-bottom">
+            <h1> Slider 1</h1>
+            <Slide
+              data={dataSlice}
+              columns={columns}
+              togglePanel={this.togglePanel}
+            />
+          </div>
+          <NextButton next={this.next} />
         </div>
-        <NextButton next={this.next} />
-      </div>
+        <FlyoutPanel data={data} togglePanel={this.togglePanel} />
+      </React.Fragment>
     );
   }
 }
