@@ -45,6 +45,7 @@
   "dependencies": {
     "cookies-js": "^1.2.3",
     "copy-webpack-plugin": "^6.0.1",
+    "lodash.debounce": "^4.0.8",
     "webpack-cli": "^3.3.11"
   }
 }

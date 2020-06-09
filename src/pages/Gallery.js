@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import HeaderTag from "../components/elements/headerTag";
+
+import GalleryComponent from "../components/gallery/galleryComponent";
 class galleryPage extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ class galleryPage extends Component {
       }
     };
   }
+
   render() {
     let { title } = this.state;
     return (
@@ -79,6 +82,7 @@ class galleryPage extends Component {
             </div>
           </div>
         </div>
+        <GalleryComponent />
       </React.Fragment>
     );
   }

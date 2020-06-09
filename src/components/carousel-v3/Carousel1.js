@@ -11,7 +11,7 @@ class Carousel1 extends Component {
       pageCount: null,
       pageNumber: 1,
       startingPage: 1,
-      itemsPerPage: 3,
+      itemsPerPage: 4,
       totalCols: 12,
       columns: null,
       dataLenght: data.length + 1,
