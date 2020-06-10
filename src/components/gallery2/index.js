@@ -12,12 +12,76 @@ class GalleryComponent extends Component {
       itemsPerPage: 8,
       dataSlice: [],
       maxIndex: null,
-      noMoreDataToRetrieve: false
+      noMoreDataToRetrieve: false,
+      width: null,
+      deviceBreakPoint: null,
+      // device orientation true = portrait
+      deviceOrientation: true,
+      columns: null
     };
   }
 
+  detectDeviceWidth = () => {
+    this.setState({ width: window.innerWidth }, function () {
+      let { width } = this.state,
+        device_4K = 3840,
+        device_XL = 992,
+        device_L = 768,
+        device_S = 576,
+        device_XS = 320;
+
+      if (device_4K <= width) {
+        this.setState({ deviceBreakPoint: device_4K }, function () {
+          this.handleColumns();
+        });
+      } else if (device_XL <= width) {
+        this.setState({ deviceBreakPoint: device_XL }, function () {
+          this.handleColumns();
+        });
+      } else if (device_L <= width) {
+        this.setState({ deviceBreakPoint: device_L }, function () {
+          this.handleColumns();
+        });
+      } else if (device_S <= width) {
+        this.setState({ deviceBreakPoint: device_S }, function () {
+          this.handleColumns();
+        });
+      } else if (device_XS <= width) {
+        this.setState({ deviceBreakPoint: device_XS }, function () {
+          this.handleColumns();
+        });
+      }
+    });
+  };
+  handleColumns = async () => {
+    let { deviceBreakPoint, deviceOrientation, columns } = this.state;
+
+    if (deviceBreakPoint == 320) {
+      this.setState({ columns: "100%" });
+    } else if (deviceBreakPoint == 576) {
+      this.setState({ columns: "50%" });
+    } else if (deviceBreakPoint == 768) {
+      this.setState({ columns: "25%" });
+    } else if (deviceBreakPoint == 992) {
+      this.setState({ columns: "20%" });
+    }
+  };
+  detectDeviceOrientation = () => {
+    let deviceOrientation = true;
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      deviceOrientation = true;
+    }
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      deviceOrientation = false;
+    }
+    this.setState({ deviceOrientation: deviceOrientation });
+  };
+
   componentDidMount = () => {
     window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("resize", this.detectDeviceWidth);
+    window.addEventListener("orientationchange", this.detectDeviceOrientation);
+    this.detectDeviceWidth();
     this.getData();
   };
 
@@ -68,6 +132,11 @@ class GalleryComponent extends Component {
 
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("resize", this.detectDeviceWidth);
+    window.reomveEventListener(
+      "orientationchange",
+      this.detectDeviceOrientation
+    );
   };
 
   galleryItemClickHandler = (e) => {
@@ -81,12 +150,19 @@ class GalleryComponent extends Component {
     console.log("item id" + id);
   };
   render() {
-    let { dataSlice } = this.state;
+    let {
+      dataSlice,
+      columns,
+      deviceOrientation,
+      deviceBreakPoint
+    } = this.state;
 
+    console.log("device break point :" + deviceBreakPoint);
+    console.log("device orientation :  " + deviceOrientation);
     let gallery = dataSlice.map((item, index) => {
       return (
         <React.Fragment key={index}>
-          <div className="gallery-wrapper">
+          <div className="gallery-wrapper" style={{ width: `${columns}` }}>
             <div
               id={item.id}
               onClick={this.galleryItemClickHandler}
@@ -97,7 +173,7 @@ class GalleryComponent extends Component {
             >
               <h1 className="title">{item.title}</h1>
               <p className="description">{item.description}</p>
-              <span className="icon" />
+              <span id={item.id} className="icon" />
               <span
                 id={item.id}
                 className="galleryLikeButton"

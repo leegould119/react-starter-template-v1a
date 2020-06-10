@@ -9,8 +9,9 @@
   overflow: hidden;
 }
 .gallery-wrapper {
-  width: 20%;
-  float: left;
+  // width: 25%;
+  // float: left;
+  display: inline-block;
 }
 .gallery-item {
   width: calc(100% - 10px);
@@ -21,6 +22,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  // filter: contrast(100%) brightness(100%);
   .icon {
     position: absolute;
     z-index: 300;
@@ -66,7 +68,10 @@
   &:hover {
     z-index: 3000;
     transform: scale(1.08);
+    // perspective: (300px);
+    // transform: rotateY(360deg);
     // filter: hue-rotate(180deg);
+    // filter: sepia(100%);
     .icon {
       opacity: 1;
     }
