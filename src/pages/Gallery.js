@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HeaderTag from "../components/elements/headerTag";
 
-import GalleryComponent from "../components/gallery/galleryComponent";
+import GalleryComponent from "../components/gallery2/";
 class galleryPage extends Component {
   constructor(props) {
     super(props);
