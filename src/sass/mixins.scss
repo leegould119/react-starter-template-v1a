@@ -44,9 +44,9 @@
   -moz-border-radius: $radius;
 }
 
-@mixin respond($breakpoint, $direction, $size) {
+@mixin respond($breakpoint, $direction, $size, $orientation) {
   @if $breakpoint == non-retina {
-    @media only screen and($direction: $size) {
+    @media only screen and($direction: $size) and(orientation: $orientation) {
       @content;
     }
   }

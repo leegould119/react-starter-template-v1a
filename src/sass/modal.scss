@@ -1,11 +1,8 @@
 .modal-wrapper {
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 0;
+  position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 4000;
 }
@@ -38,6 +35,7 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
+    cursor: pointer;
   }
 }
 .modal-body {
@@ -45,5 +43,98 @@
   padding: 0px 25px 20px 25px;
   p {
     color: $white;
+  }
+}
+
+// gallery modal
+.gallery-modal-container {
+  position: relative;
+  background-color: $dark-grey;
+  width: 80%;
+  height: auto;
+  left: calc(50% - 40%);
+  right: calc(50% - 40%);
+  top: 50px;
+  overflow: hidden;
+
+  .nextButton,
+  .backButton {
+    position: absolute;
+    top: 50%;
+  }
+
+  .nextButton {
+    display: block;
+    z-index: 1000;
+    @include border-radius(50%);
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    right: 5px;
+    transition: $transition;
+
+    &.dark-orange {
+      background-color: $dark-orange;
+
+      &:hover {
+        background-color: $dark-grey;
+      }
+    }
+    &.dark-grey {
+      background-color: $dark-grey;
+
+      &:hover {
+        background-color: $dark-orange;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-image: url("../img/arrow.svg");
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      @include transform(rotate(180deg));
+      margin-left: -3px;
+      cursor: pointer;
+    }
+  }
+
+  .backButton {
+    display: block;
+    z-index: 1000;
+    @include border-radius(50%);
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    left: 5px;
+    transition: $transition;
+
+    &.dark-orange {
+      background-color: $dark-orange;
+
+      &:hover {
+        background-color: $dark-grey;
+      }
+    }
+    &.dark-grey {
+      background-color: $dark-grey;
+
+      &:hover {
+        background-color: $dark-orange;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-image: url("../img/arrow.svg");
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      margin-left: 2px;
+      cursor: pointer;
+    }
   }
 }

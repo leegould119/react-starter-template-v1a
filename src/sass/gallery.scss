@@ -22,7 +22,6 @@
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  // filter: contrast(100%) brightness(100%);
   .icon {
     position: absolute;
     z-index: 300;
@@ -64,23 +63,24 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
   }
-
-  &:hover {
-    z-index: 3000;
-    transform: scale(1.08);
-    // perspective: (300px);
-    // transform: rotateY(360deg);
-    // filter: hue-rotate(180deg);
-    // filter: sepia(100%);
-    .icon {
-      opacity: 1;
-    }
-    .description,
-    .title {
-      opacity: 1;
-    }
-    &:after {
-      opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      z-index: 3000;
+      transform: scale(1.08);
+      // perspective: (300px);
+      // transform: rotateY(360deg);
+      // filter: hue-rotate(180deg);
+      // filter: sepia(100%);
+      .icon {
+        opacity: 1;
+      }
+      .description,
+      .title {
+        opacity: 1;
+      }
+      &:after {
+        opacity: 1;
+      }
     }
   }
 }
@@ -98,9 +98,127 @@
   bottom: 20px;
   right: 20px;
   background-repeat: no-repeat;
-  z-index: 4000;
+  z-index: 400;
   transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: rgba(207, 0, 15, 1);
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba(207, 0, 15, 1);
+    }
+  }
+}
+
+/* -----------------------------------------------------------------
+    REPSONSIVE DEVICES
+------------------------------------------------------------------- */
+
+$device_4K: "3840px";
+$device_XXL: "1366px";
+$device_XL: "992px";
+$device_L: "768px";
+$device_S: "567px";
+$device_XS: "320px";
+
+@include respond(non-retina, min-width, $device_XS, portrait) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_S, landscape) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_S, portrait) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_L, landscape) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_L, portrait) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_XL, landscape) {
+  .icon {
+    opacity: 1 !important;
+  }
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+
+@include respond(non-retina, max-width, $device_XL, portrait) {
+  .icon {
+    opacity: 1 !important;
+  }
+
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
+  }
+}
+@include respond(non-retina, max-width, $device_XXL, landscape) {
+  .icon {
+    opacity: 1 !important;
+  }
+
+  .description,
+  .title {
+    opacity: 1 !important;
+  }
+  .gallery-item:after {
+    opacity: 1 !important;
   }
 }
