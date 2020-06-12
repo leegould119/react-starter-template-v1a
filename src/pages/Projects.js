@@ -117,29 +117,29 @@ class projectsPage extends Component {
           colClass: "col-6"
         }
       ],
+      width: null,
       deviceParams: {
         deviceOrientation: null,
         deviceSize: null
       }
     };
   }
-
-  detectDeviceWidth = (width) => {
-    let deviceWidth = deviceDetection.detectDeviceWidth(width);
-    console.log("device width : " + deviceWidth);
-    this.detectDeviceOrientation(deviceWidth);
+  detectDeviceWidth = () => {
+    this.setState({ width: window.innerWidth }, function () {
+      let { width } = this.state;
+      let deviceWidth = deviceDetection.detectDeviceWidth(width);
+      this.detectDeviceOrientation(deviceWidth);
+    });
   };
 
   detectDeviceOrientation = (deviceWidth) => {
     let deviceParams = deviceDetection.detectDeviceOrientation(deviceWidth);
-    console.log("device params : " + JSON.stringify(deviceParams));
     this.setState({ deviceParams: deviceParams });
   };
 
   componentDidMount = () => {
-    let deviceWidth = window.innerWidth;
-    this.detectDeviceWidth(deviceWidth);
-    window.addEventListener("resize", this.detectDeviceWidth(deviceWidth));
+    window.addEventListener("resize", this.detectDeviceWidth);
+    this.detectDeviceWidth();
   };
 
   componentWillUnmount = () => {
@@ -148,9 +148,13 @@ class projectsPage extends Component {
 
   render() {
     let { title, projects, technologies, deviceParams } = this.state;
-    console.log("device params : " + JSON.stringify(deviceParams));
+    console.log(
+      "device params : " +
+        deviceParams.deviceSize +
+        " orienttion : " +
+        deviceParams.deviceOrientation
+    );
     let { generalStyles } = this.props;
-    console.log(JSON.stringify(generalStyles));
     return (
       <React.Fragment>
         <HeaderTag title={title} />

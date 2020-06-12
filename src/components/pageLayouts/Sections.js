@@ -6,7 +6,7 @@ class Sections extends Component {
   render() {
     let { vals, backgroundColor, padding } = this.props;
 
-    console.log("vals : " + vals);
+    // console.log("vals : " + vals);
 
     let paddingLocal = padding ? padding : "";
     let backgroundColorLocal = backgroundColor ? backgroundColor : "";
