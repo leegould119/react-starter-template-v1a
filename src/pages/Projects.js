@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import HeaderTag from "../components/elements/headerTag";
 import Sections from "../components/pageLayouts/Sections";
-
+import deviceDetection from "../utils/detectDeviceWidth";
 class projectsPage extends Component {
   constructor(props) {
     super(props);
@@ -116,12 +116,39 @@ class projectsPage extends Component {
           buttonTitle: "read more",
           colClass: "col-6"
         }
-      ]
+      ],
+      deviceParams: {
+        deviceOrientation: null,
+        deviceSize: null
+      }
     };
   }
 
+  detectDeviceWidth = (width) => {
+    let deviceWidth = deviceDetection.detectDeviceWidth(width);
+    console.log("device width : " + deviceWidth);
+    this.detectDeviceOrientation(deviceWidth);
+  };
+
+  detectDeviceOrientation = (deviceWidth) => {
+    let deviceParams = deviceDetection.detectDeviceOrientation(deviceWidth);
+    console.log("device params : " + JSON.stringify(deviceParams));
+    this.setState({ deviceParams: deviceParams });
+  };
+
+  componentDidMount = () => {
+    let deviceWidth = window.innerWidth;
+    this.detectDeviceWidth(deviceWidth);
+    window.addEventListener("resize", this.detectDeviceWidth(deviceWidth));
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.detectDeviceWidth);
+  };
+
   render() {
-    let { title, projects, technologies } = this.state;
+    let { title, projects, technologies, deviceParams } = this.state;
+    console.log("device params : " + JSON.stringify(deviceParams));
     let { generalStyles } = this.props;
     console.log(JSON.stringify(generalStyles));
     return (
