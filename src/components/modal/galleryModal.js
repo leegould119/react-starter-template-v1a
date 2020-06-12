@@ -17,7 +17,7 @@ class galleryModal extends Component {
     this.setState({ pageNum: id });
   };
 
-  next = (e) => {
+  next = () => {
     let { pageNum, maxIndex } = this.state;
     console.log("image id : " + pageNum);
     console.log("max index . " + maxIndex);
@@ -31,7 +31,7 @@ class galleryModal extends Component {
     }
   };
 
-  prev = (e) => {
+  prev = () => {
     let { pageNum, maxIndex } = this.state;
     console.log("image id : " + pageNum);
 
@@ -81,7 +81,6 @@ class galleryModal extends Component {
           <div className="modal-wrapper">
             <div className="gallery-modal-container">
               <NextButton next={this.next} />
-
               {galleryItem}
               <BackButton prev={this.prev} />
             </div>

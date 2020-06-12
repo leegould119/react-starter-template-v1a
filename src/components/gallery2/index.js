@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import data from "./data";
 import debounce from "lodash.debounce";
 import { GalleryModal } from "../modal/";
+import LikeButton from "../elements/likeButton";
 class GalleryComponent extends Component {
   constructor(props) {
     super(props);
@@ -162,19 +163,19 @@ class GalleryComponent extends Component {
   galleryItemClickHandler = async (e) => {
     e.preventDefault();
     let id = e.target.id;
-    setTimeout(async () => {
-      await this.setState({
-        openCloseModal: !this.state.openCloseModal,
-        imageId: id
-      });
-    }, 20);
+
+    if ((id = "likeButton" + id)) {
+      return;
+    } else {
+      setTimeout(async () => {
+        await this.setState({
+          openCloseModal: !this.state.openCloseModal,
+          imageId: id
+        });
+      }, 20);
+    }
   };
 
-  likeItemClickHandler = (e) => {
-    e.preventDefault();
-    let id = "button" + e.target.id;
-    // console.log("item id" + id);
-  };
   render() {
     let {
       dataSlice,
@@ -207,11 +208,7 @@ class GalleryComponent extends Component {
                 {item.description}
               </p>
               <span id={item.id} className="icon" />
-              <span
-                id={"button" + item.id}
-                className="galleryLikeButton"
-                onClick={this.likeItemClickHandler}
-              />
+              <LikeButton id={item.id} />
             </div>
           </div>
         </React.Fragment>
