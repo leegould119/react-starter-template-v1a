@@ -151,7 +151,7 @@ class projectsPage extends Component {
     console.log(
       "device params : " +
         deviceParams.deviceSize +
-        " orienttion : " +
+        " orientation : " +
         deviceParams.deviceOrientation
     );
     let { generalStyles } = this.props;
