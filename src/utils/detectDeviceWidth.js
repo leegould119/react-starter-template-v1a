@@ -28,9 +28,11 @@ const deviceDetection = {
   detectDeviceOrientation: function (deviceSize) {
     let deviceOrientation = true;
     if (window.matchMedia("(orientation: portrait)").matches) {
+      // i would refer a sting here of "portrait"
       deviceOrientation = true;
     }
     if (window.matchMedia("(orientation: landscape)").matches) {
+      // i would prefer a string here of "landscape"
       deviceOrientation = false;
     }
     let deviceParams = {
